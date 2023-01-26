@@ -24,8 +24,8 @@ You need to install python 3 and the following pip packages:
 - limepy
 - GitPython
 
-Once you have set up the Pi, you can place the **startup.py** file in the Documents folder.
-Afterwards, [edit the **rc.local** file](https://raspberrypi-guide.github.io/programming/run-script-on-boot) and add the path **/home/pi/Documents/startup.py**. 
+Once you have set up the Pi, you can place the whole repo in the Documents folder so that its path will be **/home/pi/Documents/sphere-ixd**.
+Afterwards, [edit the **rc.local** file](https://raspberrypi-guide.github.io/programming/run-script-on-boot) and add the path **/home/pi/Documents/shpere-ixd/startup.py**. 
 
 When the Raspberry Pi is powered on, it should now automatically update the program files and run the program. 
 
