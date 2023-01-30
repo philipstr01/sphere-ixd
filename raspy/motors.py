@@ -117,3 +117,4 @@ class motor:
             self.Step6()
             self.Step7()
             self.Step8()
+        GPIO.cleanup()
