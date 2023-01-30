@@ -52,10 +52,10 @@ class motor:
     def __init__(self,A,B,C,D):
         GPIO.setmode(GPIO.BOARD)
         # PIN-Assignment
-        self.A=18
-        self.B=23
-        self.C=24
-        self.D=25
+        self.A=A
+        self.B=B
+        self.C=C
+        self.D=D
         time = 0.001
         # defining the PINs
         GPIO.setup(self.A,GPIO.OUT)
