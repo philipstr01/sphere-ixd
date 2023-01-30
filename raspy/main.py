@@ -11,5 +11,5 @@ import time
 
 motor1 = motors.motor(13,15,16,18)
 
-motor1.forward()
+motor1.forward(0)
 
