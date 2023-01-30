@@ -5,7 +5,6 @@ time = 0.001
 
 class motor:
     def __init__(self,A,B,C,D):
-        GPIO.setmode(GPIO.BOARD)
         # PIN-Assignment
         self.A=A
         self.B=B
@@ -62,6 +61,7 @@ class motor:
         GPIO.output(self.D, False)
         GPIO.output(self.A, False)
     def forward(self,j):
+        GPIO.setmode(GPIO.BOARD)
         for i in range (512*j):
             self.Step1()
             self.Step2()
@@ -73,6 +73,7 @@ class motor:
             self.Step8()
         GPIO.cleanup()
     def backward(self,j):
+        GPIO.setmode(GPIO.BOARD)
         for i in range (512*j):
             self.Step8()
             self.Step7()
