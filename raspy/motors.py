@@ -1,6 +1,8 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
+time = 0.001
+
 class motor:
     def __init__(self,A,B,C,D):
         GPIO.setmode(GPIO.BOARD)
@@ -9,7 +11,6 @@ class motor:
         self.B=B
         self.C=C
         self.D=D
-        time = 0.001
         # defining the PINs
         GPIO.setup(self.A,GPIO.OUT)
         GPIO.setup(self.B,GPIO.OUT)
