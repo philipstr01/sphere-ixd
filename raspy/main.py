@@ -13,4 +13,4 @@ motor1 = motors.motor(13,15,16,18)
 
 motor1.forward(1)
 motor1.backward(1)
-
+GPIO.cleanup()
