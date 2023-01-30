@@ -11,7 +11,5 @@ import time
 
 motor1 = motors.motor(13,15,16,18)
 
-i = 0
-while i < 10:
-  motor1.forward(1,1)
-  i += 1
+motor1.forward()
+
