@@ -15,7 +15,7 @@ Seq[7] = [0,1,1,0]
 
 class motor:
     def __init__(self,coil_A_1_pin,coil_A_2_pin,coil_B_1_pin,coil_B_2_pin):
-        GPIO.setmode(GPIO.BCM)
+        GPIO.setmode(GPIO.BOARD)
         GPIO.setwarnings(False)
         self.coil_A_1_pin = coil_A_1_pin
         self.coil_A_2_pin = coil_A_2_pin
