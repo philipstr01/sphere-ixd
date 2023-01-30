@@ -8,17 +8,16 @@ def download_write_responses(sid=287768,filename="responses.csv"):
         f.close()
     except FileExistsError:
         pass
-    csv = lp.get_responses("https://testteamotional.limesurvey.net/admin/remotecontrol", "girim00", "TreamDream23", 1, sid)
+    csv = lp.download.get_responses("https://testteamotional.limesurvey.net/admin/remotecontrol", "girim00", "TreamDream23", 1, sid)
     path = Path('data/'+filename)
     path.write_text(csv)
-
 
 #Not working at the moment
 def getSurveyObject(filename="responses.csv",language=None):
     df = pd.read_csv('data/'+str(filename), sep=';')
     with open('data/structure.lss') as f: #Structure needs to be downloaded manually
         my_structure = f.read()
-    return Survey(df, my_structure) #Error in function Code
+    return lp.wrangle.Survey(df, my_structure) #Error in function Code
 
 def getsurveyDataframe(filename="responses.csv",language=None):
     return pd.read_csv('data/'+str(filename), sep=';')
