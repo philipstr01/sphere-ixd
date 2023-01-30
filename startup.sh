@@ -3,5 +3,5 @@ cd /home/pi/Documents/sphere-ixd
 git reset --hard
 git pull origin main
 
-cd /raspy/
+cd raspy/
 python3 main.py &
