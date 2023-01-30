@@ -5,6 +5,7 @@ time = 0.001
 
 class motor:
     def __init__(self,A,B,C,D):
+        GPIO.setmode(GPIO.BOARD)
         # PIN-Assignment
         self.A=A
         self.B=B
