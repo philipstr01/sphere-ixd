@@ -62,7 +62,7 @@ class motor:
         GPIO.output(self.D, False)
         GPIO.output(self.A, False)
     def forward(self,x):
-        for i in range(int(512*x)):
+        for i in range(int(10*512*x)):
             self.Step1()
             self.Step2()
             self.Step3()
@@ -72,7 +72,7 @@ class motor:
             self.Step7()
             self.Step8()
     def backward(self,x):
-        for i in range(int(512*x)):
+        for i in range(int(10*512*x)):
             self.Step8()
             self.Step7()
             self.Step6()
