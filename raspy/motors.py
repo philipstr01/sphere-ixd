@@ -168,8 +168,7 @@ class motorcontroller:
         self.heights = []
 
     def setheights(self,heights):
-        l = len(heights)
-        if l != len(self.marray.arr):
+        if len(heights) != len(self.marray.arr):
             print("Passed list has not the same length as motors in list!")
             return
 
@@ -177,6 +176,7 @@ class motorcontroller:
 
         tmparr = copy.deepcopy(self.marray) #Maybee needs .copy()
         while tmparr.arr:
+            l = len(heights)
             idx = []
             minV = min(heights)
             for i in range(l):
