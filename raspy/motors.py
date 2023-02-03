@@ -4,13 +4,14 @@ from time import sleep
 time = 0.001
 
 class motor:
-    def __init__(self,A,B,C,D):
+    def __init__(self,A,B,C,D,height):
         GPIO.setmode(GPIO.BOARD)
         # PIN-Assignment
         self.A=A
         self.B=B
         self.C=C
         self.D=D
+        self.height=height
         # defining the PINs
         GPIO.setup(self.A,GPIO.OUT)
         GPIO.setup(self.B,GPIO.OUT)
@@ -61,8 +62,8 @@ class motor:
         sleep (time)
         GPIO.output(self.D, False)
         GPIO.output(self.A, False)
-    def forward(self,j):
-        for i in range (512*j):
+    def forward(self,x):
+        for i in range(512*x):
             self.Step1()
             self.Step2()
             self.Step3()
@@ -71,8 +72,8 @@ class motor:
             self.Step6()
             self.Step7()
             self.Step8()
-    def backward(self,j):
-        for i in range (512*j):
+    def backward(self,x):
+        for i in range(512*x):
             self.Step8()
             self.Step7()
             self.Step6()
@@ -81,3 +82,10 @@ class motor:
             self.Step3()
             self.Step2()
             self.Step1()
+class motorarray:
+    def __init_(self,arr):
+        self.arr = arr
+    def forward(self,x):
+        for i in range(x*521):
+            for m in arr:
+                m.forward(int(i/521))
