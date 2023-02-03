@@ -175,7 +175,7 @@ class motorcontroller:
 
         self.heights = heights
 
-        tmparr = deepcopy(self.marray) #Maybee needs .copy()
+        tmparr = copy.deepcopy(self.marray) #Maybee needs .copy()
         while tmparr.arr:
             idx = []
             minV = min(heights)
