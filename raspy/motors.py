@@ -86,5 +86,5 @@ class motorarray:
         self.arr = arr
     def forward(self,x):
         for i in range(x*521):
-            for m in arr:
+            for m in self.arr:
                 m.forward(int(i/521))
