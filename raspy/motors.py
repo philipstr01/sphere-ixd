@@ -151,13 +151,13 @@ class motorarray:
             GPIO.output(m.D, False)
             GPIO.output(m.A, False)
 
-     def forward(self,x):
-        for i in range(x*512):
-            self.Step1()
-            self.Step2()
-            self.Step3()
-            self.Step4()
-            self.Step5()
-            self.Step6()
-            self.Step7()
-            self.Step8()
+    def forward(self,x):
+       for i in range(x*512):
+           self.Step1()
+           self.Step2()
+           self.Step3()
+           self.Step4()
+           self.Step5()
+           self.Step6()
+           self.Step7()
+           self.Step8()
