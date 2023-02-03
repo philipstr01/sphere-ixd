@@ -186,7 +186,8 @@ class motorcontroller:
             tmparr.forward(minV)
             if len(idx) == 0:
                 continue
-            for i in idx.reverse():
+            idx.reverse()
+            for i in idx:
                 print("idx = "+str(idx))
                 del tmparr.arr[i]
                 del heights[i]
