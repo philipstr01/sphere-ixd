@@ -1,7 +1,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
 
-time = 0.001
+time = 0.0001
 
 class motor:
     def __init__(self,A,B,C,D):
