@@ -11,6 +11,7 @@ class motor:
         self.C=C
         self.D=D
         self.height=0
+        self.time = 1e-3
         # defining the PINs
         GPIO.setup(self.A,GPIO.OUT)
         GPIO.setup(self.B,GPIO.OUT)
@@ -23,42 +24,42 @@ class motor:
     # driving the motor
     def Step1(self):
         GPIO.output(self.D, True)
-        sleep (time)
+        sleep (self.time)
         GPIO.output(self.D, False)
     def Step2(self):
         GPIO.output(self.D, True)
         GPIO.output(self.C, True)
-        sleep (time)
+        sleep (self.time)
         GPIO.output(self.D, False)
         GPIO.output(self.C, False)
     def Step3(self):
         GPIO.output(self.C, True)
-        sleep (time)
+        sleep (self.time)
         GPIO.output(self.C, False)
     def Step4(self):
         GPIO.output(self.B, True)
         GPIO.output(self.C, True)
-        sleep (time)
+        sleep (self.time)
         GPIO.output(self.B, False)
         GPIO.output(self.C, False)
     def Step5(self):
         GPIO.output(self.B, True)
-        sleep (time)
+        sleep (self.time)
         GPIO.output(self.B, False)
     def Step6(self):
         GPIO.output(self.A, True)
         GPIO.output(self.B, True)
-        sleep (time)
+        sleep (self.time)
         GPIO.output(self.A, False)
         GPIO.output(self.B, False)
     def Step7(self):
         GPIO.output(self.A, True)
-        sleep (time)
+        sleep (self.time)
         GPIO.output(self.A, False)
     def Step8(self):
         GPIO.output(self.D, True)
         GPIO.output(self.A, True)
-        sleep (time)
+        sleep (self.time)
         GPIO.output(self.D, False)
         GPIO.output(self.A, False)
     def forward(self,x):
@@ -84,7 +85,79 @@ class motor:
 class motorarray:
     def __init__(self,arr):
         self.arr = arr
-    def forward(self,x):
+        self.time = 1e-3
+   
+    def Step1(self):
+        for m in self.arr:
+            GPIO.output(m.D, True)
+        sleep (self.time)
+        for m in self.arr:
+            GPIO.output(m.D, False)
+
+    def Step2(self):
+        for m in self.arr:
+            GPIO.output(m.D, True)
+            GPIO.output(m.C, True)
+        sleep (self.time)
+        for m in self.arr:
+            GPIO.output(m.D, False)
+            GPIO.output(m.C, False)
+
+    def Step3(self):
+        for m in self.arr:
+            GPIO.output(m.C, True)
+        sleep (self.time)
+        for m in self.arr:
+            GPIO.output(m.C, False)
+
+    def Step4(self):
+        for m in self.arr:
+            GPIO.output(m.B, True)
+            GPIO.output(m.C, True)
+        sleep (self.time)
+        for m in self.arr:
+            GPIO.output(m.B, False)
+            GPIO.output(m.C, False)
+
+    def Step5(self):
+        for m in self.arr:
+            GPIO.output(m.B, True)
+        sleep (self.time)
+        for m in self.arr:
+            GPIO.output(m.B, False)
+
+    def Step6(self):
+        for m in self.arr:
+            GPIO.output(m.A, True)
+            GPIO.output(m.B, True)
+        sleep (self.time)
+        for m in self.arr:
+            GPIO.output(m.A, False)
+            GPIO.output(m.B, False)
+
+    def Step7(self):
+        for m in self.arr:
+            GPIO.output(m.A, True)
+        sleep (self.time)
+        for m in self.arr:
+            GPIO.output(m.A, False)
+
+    def Step8(self):
+        for m in self.arr:
+            GPIO.output(m.D, True)
+            GPIO.output(m.A, True)
+        sleep (self.time)
+        for m in self.arr:
+            GPIO.output(m.D, False)
+            GPIO.output(m.A, False)
+
+     def forward(self,x):
         for i in range(x*512):
-            for m in self.arr:
-                m.forward(1/512)
+            self.Step1()
+            self.Step2()
+            self.Step3()
+            self.Step4()
+            self.Step5()
+            self.Step6()
+            self.Step7()
+            self.Step8()
