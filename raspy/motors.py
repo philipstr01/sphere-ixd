@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import copy
 from time import sleep
+import time
 
 time = 0.001
 
@@ -90,7 +91,6 @@ class motorarray:
     def Step1(self):
         for m in self.arr:
             GPIO.output(m.D, True)
-        sleep (self.time)
         for m in self.arr:
             GPIO.output(m.D, False)
 
@@ -173,8 +173,8 @@ class motorcontroller:
             return
 
         self.heights = heights
-
-        tmparr = copy.deepcopy(self.marray) #Maybee needs .copy()
+        tmparr = copy.deepcopy(self.marray) 
+        
         while tmparr.arr:
             l = len(heights)
             idx = []
@@ -182,13 +182,11 @@ class motorcontroller:
             for i in range(l):
                 if heights[i] == minV:
                     idx.append(i)
-            print("minV = "+str(minV))
             tmparr.forward(minV)
             if len(idx) == 0:
                 continue
             idx.reverse()
             for i in idx:
-                print("idx = "+str(idx))
                 del tmparr.arr[i]
                 del heights[i]
             
