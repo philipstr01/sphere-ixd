@@ -179,7 +179,7 @@ class motorcontroller:
             idx = []
             minV = min(heights)
             for i in range(l).reverse():
-                if heights[i]=minV:
+                if heights[i] == minV:
                     idx.append(i)
 
             tmparr.forward(minV)
