@@ -82,7 +82,7 @@ class motor:
             self.Step2()
             self.Step1()
 class motorarray:
-    def __init_(self,arr):
+    def __init__(self,arr):
         self.arr = arr
     def forward(self,x):
         for i in range(x*521):
