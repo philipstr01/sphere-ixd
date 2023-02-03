@@ -184,7 +184,7 @@ class motorcontroller:
                     idx.append(i)
             print("minV = "+str(minV))
             tmparr.forward(minV)
-            if !idx:
+            if len(idx) == 0:
                 continue
             for i in idx.reverse():
                 print("idx = "+str(idx))
