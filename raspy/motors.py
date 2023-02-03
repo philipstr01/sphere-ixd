@@ -161,7 +161,24 @@ class motorarray:
             self.Step6()
             self.Step7()
             self.Step8()
-
+            
+    def backward(self,x):
+        for i in range(int(x*512)):
+            self.Step8()
+            self.Step7()
+            self.Step6()
+            self.Step5()
+            self.Step4()
+            self.Step3()
+            self.Step2()
+            self.Step1()
+            
+    def move(self.x):
+        if x >= 0:
+            self.forward(abs(x))
+        else:
+            self.backward(abs(x))
+    
 class motorcontroller:
     def __init__(self,marray):
         self.marray=marray
