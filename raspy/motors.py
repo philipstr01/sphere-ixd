@@ -10,7 +10,6 @@ class motor:
         self.B=B
         self.C=C
         self.D=D
-        self.height=0
         self.time = 1e-3
         # defining the PINs
         GPIO.setup(self.A,GPIO.OUT)
@@ -86,7 +85,7 @@ class motorarray:
     def __init__(self,arr):
         self.arr = arr
         self.time = 1e-3
-   
+
     def Step1(self):
         for m in self.arr:
             GPIO.output(m.D, True)
@@ -152,12 +151,39 @@ class motorarray:
             GPIO.output(m.A, False)
 
     def forward(self,x):
-       for i in range(x*512):
-           self.Step1()
-           self.Step2()
-           self.Step3()
-           self.Step4()
-           self.Step5()
-           self.Step6()
-           self.Step7()
-           self.Step8()
+        for i in range(x*512):
+            self.Step1()
+            self.Step2()
+            self.Step3()
+            self.Step4()
+            self.Step5()
+            self.Step6()
+            self.Step7()
+            self.Step8()
+
+class motorcontroller:
+    def __init__(self,marray):
+        self.marray=marray
+        self.heights = []
+
+    def setheights(self,heights):
+        l = len(heights)
+        if l != len(self.marray.arr):
+            print("Passed list has not the same length as motors in list!")
+            return
+
+        self.heights = heights
+
+        tmparr = self.marray #Maybee needs .copy()
+        while tmparr.arr:
+            idx = []
+            minV = min(heights)
+            for i in range(l).reverse():
+                if heights[i]=minV:
+                    idx.append(i)
+
+            tmparr.forward(minV)
+            for i in idx:
+                del tmparr.arr[i]
+                del heights[i]
+            
