@@ -178,12 +178,12 @@ class motorcontroller:
         while tmparr.arr:
             idx = []
             minV = min(heights)
-            for i in range(l).reverse():
+            for i in range(l):
                 if heights[i] == minV:
                     idx.append(i)
 
             tmparr.forward(minV)
-            for i in idx:
+            for i in idx.reverse():
                 del tmparr.arr[i]
                 del heights[i]
             
