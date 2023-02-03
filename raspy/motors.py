@@ -4,13 +4,13 @@ from time import sleep
 time = 0.001
 
 class motor:
-    def __init__(self,A,B,C,D,height):
+    def __init__(self,A,B,C,D):
         # PIN-Assignment
         self.A=A
         self.B=B
         self.C=C
         self.D=D
-        self.height=height
+        self.height=0
         # defining the PINs
         GPIO.setup(self.A,GPIO.OUT)
         GPIO.setup(self.B,GPIO.OUT)
