@@ -1,4 +1,5 @@
 import RPi.GPIO as GPIO
+import copy
 from time import sleep
 
 time = 0.001
@@ -174,16 +175,17 @@ class motorcontroller:
 
         self.heights = heights
 
-        tmparr = self.marray #Maybee needs .copy()
+        tmparr = self.marray.copy() #Maybee needs .copy()
         while tmparr.arr:
             idx = []
             minV = min(heights)
             for i in range(l):
                 if heights[i] == minV:
                     idx.append(i)
-
+            print("minV = "+str(minV))
             tmparr.forward(minV)
             for i in idx.reverse():
+                print("idx = "+str(idx))
                 del tmparr.arr[i]
                 del heights[i]
             
