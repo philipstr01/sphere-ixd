@@ -173,7 +173,7 @@ class motorarray:
             self.Step2()
             self.Step1()
             
-    def move(self.x):
+    def move(self,x):
         if x >= 0:
             self.forward(abs(x))
         else:
