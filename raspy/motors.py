@@ -224,7 +224,7 @@ class motorcontroller:
         self.heights = []
 
     def updateheights(self,deltaheight):
-        if len(heights) != len(self.marray.dic):
+        if len(deltaheight) != len(self.marray.dic):
             print("Passed list has not the same length as motors in list!")
             return
 
