@@ -194,6 +194,7 @@ class motorcontroller:
         self.heights = heights
         tmparr = copy.deepcopy(self.marray) 
         
+        acc = 0
         while tmparr.arr:
             l = len(heights)
             idx = []
@@ -201,7 +202,8 @@ class motorcontroller:
             for i in range(l):
                 if heights[i] == minV:
                     idx.append(i)
-            tmparr.forward(minV)
+            tmparr.forward(minV-acc)
+            acc += minV
             if len(idx) == 0:
                 continue
             idx.reverse()
