@@ -152,6 +152,8 @@ class motorarray:
             GPIO.output(m.A, False)
 
     def forward(self,x):
+        print(x)
+        print(int(x*512))
         for i in range(int(x*512)):
             self.Step1()
             self.Step2()
