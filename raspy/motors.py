@@ -90,14 +90,14 @@ class motorarray:
 
     def Step1(self):
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.D, True)
             else:
                 GPIO.output(m.D, True)
                 GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.D, False)
             else:
                 GPIO.output(m.D, False)
@@ -105,116 +105,108 @@ class motorarray:
 
     def Step2(self):
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.D, True)
                 GPIO.output(m.C, True)
             else:
-                GPIO.output(m.D, True)
                 GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.D, False)
                 GPIO.output(m.C, False)
             else:
-                GPIO.output(m.D, False)
                 GPIO.output(m.A, False)
 
     def Step3(self):
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.C, True)
             else:
-                GPIO.output(m.D, True)
                 GPIO.output(m.A, True)
+                GPIO.output(m.B, True)
         sleep (self.time)
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.C, False)
             else:
-                GPIO.output(m.D, False)
                 GPIO.output(m.A, False)
+                GPIO.output(m.B, False)
 
     def Step4(self):
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.C, True)
                 GPIO.output(m.B, True)
             else:
-                GPIO.output(m.D, True)
-                GPIO.output(m.A, True)
+                GPIO.output(m.B, True)
         sleep (self.time)
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.C, False)
                 GPIO.output(m.B, False)
             else:
-                GPIO.output(m.D, False)
-                GPIO.output(m.A, False)
+                GPIO.output(m.B, False)
 
     def Step5(self):
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.B, True)
             else:
-                GPIO.output(m.D, True)
-                GPIO.output(m.A, True)
+                GPIO.output(m.B, True)
+                GPIO.output(m.C, True)
         sleep (self.time)
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.B, False)
             else:
-                GPIO.output(m.D, False)
-                GPIO.output(m.A, False)
+                GPIO.output(m.B, False)
+                GPIO.output(m.C, False)
 
     def Step6(self):
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.A, True)
                 GPIO.output(m.B, True)
             else:
-                GPIO.output(m.D, True)
-                GPIO.output(m.A, True)
+                GPIO.output(m.C, True)
         sleep (self.time)
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.A, False)
                 GPIO.output(m.B, False)
             else:
-                GPIO.output(m.D, False)
-                GPIO.output(m.A, False)
+                GPIO.output(m.C, False)
 
     def Step7(self):
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.A, True)
             else:
+                GPIO.output(m.C, True)
                 GPIO.output(m.D, True)
-                GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.A, False)
             else:
+                GPIO.output(m.C, False)
                 GPIO.output(m.D, False)
-                GPIO.output(m.A, False)
 
     def Step8(self):
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.A, True)
                 GPIO.output(m.D, True)
             else:
                 GPIO.output(m.D, True)
-                GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if self.dic[m]:
+            if dic[m]:
                 GPIO.output(m.A, False)
                 GPIO.output(m.D, False)
             else:
                 GPIO.output(m.D, False)
-                GPIO.output(m.A, False)
 
     def forward(self,x):
         print(x)
@@ -252,7 +244,7 @@ class motorcontroller:
         self.heights = []
 
     def setheights(self,heights):
-        if len(heights) != len(self.marray.dic):
+        if len(heights) != len(self.marray.arr):
             print("Passed list has not the same length as motors in list!")
             return
 
@@ -260,7 +252,7 @@ class motorcontroller:
         tmparr = copy.deepcopy(self.marray)
 
         acc = 0
-        while tmparr.dic:
+        while tmparr.arr:
             l = len(heights)
             idx = []
             minV = min(heights)
@@ -277,5 +269,5 @@ class motorcontroller:
                 continue
             idx.reverse()
             for i in idx:
-                del tmparr.dic[i]
+                del tmparr.arr[i]
                 del heights[i]
