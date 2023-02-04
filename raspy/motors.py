@@ -90,14 +90,14 @@ class motorarray:
 
     def Step1(self):
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.D, True)
             else:
                 GPIO.output(m.D, True)
                 GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.D, False)
             else:
                 GPIO.output(m.D, False)
@@ -105,7 +105,7 @@ class motorarray:
 
     def Step2(self):
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.D, True)
                 GPIO.output(m.C, True)
             else:
@@ -113,7 +113,7 @@ class motorarray:
                 GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.D, False)
                 GPIO.output(m.C, False)
             else:
@@ -122,14 +122,14 @@ class motorarray:
 
     def Step3(self):
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.C, True)
             else:
                 GPIO.output(m.D, True)
                 GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.C, False)
             else:
                 GPIO.output(m.D, False)
@@ -137,7 +137,7 @@ class motorarray:
 
     def Step4(self):
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.C, True)
                 GPIO.output(m.B, True)
             else:
@@ -145,7 +145,7 @@ class motorarray:
                 GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.C, False)
                 GPIO.output(m.B, False)
             else:
@@ -154,14 +154,14 @@ class motorarray:
 
     def Step5(self):
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.B, True)
             else:
                 GPIO.output(m.D, True)
                 GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.B, False)
             else:
                 GPIO.output(m.D, False)
@@ -169,7 +169,7 @@ class motorarray:
 
     def Step6(self):
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.A, True)
                 GPIO.output(m.B, True)
             else:
@@ -177,7 +177,7 @@ class motorarray:
                 GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.A, False)
                 GPIO.output(m.B, False)
             else:
@@ -186,14 +186,14 @@ class motorarray:
 
     def Step7(self):
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.A, True)
             else:
                 GPIO.output(m.D, True)
                 GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.A, False)
             else:
                 GPIO.output(m.D, False)
@@ -201,7 +201,7 @@ class motorarray:
 
     def Step8(self):
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.A, True)
                 GPIO.output(m.D, True)
             else:
@@ -209,7 +209,7 @@ class motorarray:
                 GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.A, False)
                 GPIO.output(m.D, False)
             else:
