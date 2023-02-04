@@ -3,8 +3,6 @@ import copy
 from time import sleep
 import time
 
-time = 0.001
-
 class motor:
     def __init__(self,A,B,C,D):
         # PIN-Assignment
@@ -88,6 +86,7 @@ class motorarray:
         self.dic = dic
         self.time = 1e-3
 
+    #parallel motor driving
     def Step1(self):
         for m in self.dic:
             if self.dic[m]:
@@ -208,66 +207,54 @@ class motorarray:
             else:
                 GPIO.output(m.D, False)
 
-    def forward(self,x):
-        print(x)
-        print(int(x*512))
-        for i in range(int(x*512)):
-            self.Step1()
-            self.Step2()
-            self.Step3()
-            self.Step4()
-            self.Step5()
-            self.Step6()
-            self.Step7()
-            self.Step8()
-
-    def backward(self,x):
-        for i in range(int(x*512)):
-            self.Step8()
-            self.Step7()
-            self.Step6()
-            self.Step5()
-            self.Step4()
-            self.Step3()
-            self.Step2()
-            self.Step1()
-
     def move(self,x):
-        if x >= 0:
-            self.forward(abs(x))
-        else:
-            self.backward(abs(x))
+        for i in range(int(x*512)):
+            self.Step1()
+            self.Step2()
+            self.Step3()
+            self.Step4()
+            self.Step5()
+            self.Step6()
+            self.Step7()
+            self.Step8()
 
 class motorcontroller:
     def __init__(self,marray):
         self.marray=marray
         self.heights = []
 
-    def setheights(self,heights):
+    def updateheights(self,deltaheight):
         if len(heights) != len(self.marray.dic):
             print("Passed list has not the same length as motors in list!")
             return
 
-        self.heights = heights
+        for i in range(len(deltaheight)):
+            self.heights[i] += deltaheight[i]
+            if deltaheight[i] >= 0:
+                marray.dic[marray.dic[i]] = True
+            else:
+                marray.dic[marray.dic[i]] = False
+
+        
+        tmpheigths = copy.deepcopy(self.heights)
         tmparr = copy.deepcopy(self.marray)
 
-        acc = 0
         while tmparr.dic:
-            l = len(heights)
+            l = len(tmpheigths)
             idx = []
-            minV = min(heights)
+            minV = min(tmpheigths)
             for i in range(l):
-                if heights[i] == minV:
+                if tmpheigths[i] == minV:
                     idx.append(i)
 
-            tmparr.forward(minV)
+            tmparr.move(minV)
 
             for i in range(l):
-                heights[i] -= minV
+                tmpheigths[i] -= minV
 
             if len(idx) == 0:
                 continue
             idx.reverse()
             for i in idx:
                 del tmparr.dic[i]
-                del heights[i]
+                del tmpheigths[i]
