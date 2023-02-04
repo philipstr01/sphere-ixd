@@ -105,14 +105,14 @@ class motorarray:
 
     def Step2(self):
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.D, True)
                 GPIO.output(m.C, True)
             else:
                 GPIO.output(m.A, True)
         sleep (self.time)
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.D, False)
                 GPIO.output(m.C, False)
             else:
