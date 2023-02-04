@@ -231,9 +231,9 @@ class motorcontroller:
         for i in range(len(deltaheight)):
             self.heights[i] += deltaheight[i]
             if deltaheight[i] >= 0:
-                marray.dic[marray.dic[i]] = True
+                self.marray.dic[self.marray.dic[i]] = True
             else:
-                marray.dic[marray.dic[i]] = False
+                self.marray.dic[self.marray.dic[i]] = False
 
         
         tmpheigths = copy.deepcopy(self.heights)
