@@ -91,6 +91,7 @@ class motorarray:
     def Step1(self):
         for m in self.arr:
             GPIO.output(m.D, True)
+        sleep (self.time)
         for m in self.arr:
             GPIO.output(m.D, False)
 
