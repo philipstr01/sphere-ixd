@@ -202,7 +202,7 @@ class motorarray:
                 GPIO.output(m.D, True)
         sleep (self.time)
         for m in self.dic:
-            if dic[m]:
+            if self.dic[m]:
                 GPIO.output(m.A, False)
                 GPIO.output(m.D, False)
             else:
