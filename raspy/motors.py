@@ -87,11 +87,12 @@ class motorarray:
     def __init__(self,arr):
         self.arr = arr
         self.dict = {}
-        self.time = self.measureDelay()
 
         for m in self.arr:
             self.dict[m] = True
         print(self.dict)
+
+        self.time = self.measureDelay()
 
     def measureDelay(self):
         start = time.time()
