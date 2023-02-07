@@ -83,7 +83,7 @@ class motor:
             self.Step1()
 class motorarray:
     def __init__(self,dict):
-        self.arr = dict.keys()
+        self.arr = list(dict.keys())
         self.dict = dict
         self.time = 1e-3
 
@@ -232,9 +232,9 @@ class motorcontroller:
         for i in range(len(deltaheights)):
             self.heights[i] += deltaheights[i]
             if deltaheights[i] >= 0:
-                self.marray.dict[list(self.marray.arr[i])] = True
+                self.marray.dict[self.marray.arr[i]] = True
             else:
-                self.marray.dict[list(self.marray.arr[i])] = False
+                self.marray.dict[self.marray.arr[i]] = False
             deltaheights[i] = abs(deltaheights[i])
 
         tmparr = copy.deepcopy(self.marray)
