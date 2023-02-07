@@ -232,9 +232,9 @@ class motorcontroller:
         for i in range(len(deltaheights)):
             self.heights[i] += deltaheights[i]
             if deltaheights[i] >= 0:
-                self.marray.dict[self.marray.arr[i]] = True
+                self.marray.dict[list(self.marray.arr[i])] = True
             else:
-                self.marray.dict[self.marray.arr[i]] = False
+                self.marray.dict[list(self.marray.arr[i])] = False
             deltaheights[i] = abs(deltaheights[i])
 
         tmparr = copy.deepcopy(self.marray)
@@ -260,7 +260,7 @@ class motorcontroller:
                 del deltaheights[i]
 
     def setHeights(self,newheights):
-        deltaheights = [0]*len(self.heights)
+        deltaheights = []
         l = len(self.heigths)
         for i in range(l):
             deltaheights[i] = newheights[i]-self.heights[i]
