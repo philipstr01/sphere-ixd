@@ -110,6 +110,7 @@ class motorarray:
         if t < 0:
             return 0
         else:
+            print(t)
             return t
 
     
