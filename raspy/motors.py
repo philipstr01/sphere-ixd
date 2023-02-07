@@ -81,11 +81,16 @@ class motor:
             self.Step3()
             self.Step2()
             self.Step1()
+
+
 class motorarray:
-    def __init__(self,dict):
-        self.arr = list(dict.keys())
-        self.dict = dict
+    def __init__(self,arr):
+        self.arr = arr
+        self.dict = {}
         self.time = self.measureDelay()
+
+        for m in self.arr:
+            self.dict[m] = True
 
     def measureDelay(self):
         start = time.time()
