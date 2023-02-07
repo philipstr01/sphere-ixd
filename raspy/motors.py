@@ -85,8 +85,34 @@ class motorarray:
     def __init__(self,dict):
         self.arr = list(dict.keys())
         self.dict = dict
-        self.time = 1e-3
+        self.time = self.measureDelay()
 
+    def measureDelay(self):
+        start = time.time()
+
+        for m in self.arr:
+            if self.dict[m]:
+                GPIO.output(m.D, True)
+            else:
+                GPIO.output(m.D, True)
+                GPIO.output(m.A, True)
+
+        end = time.time()
+
+        for m in self.arr:
+            if self.dict[m]:
+                GPIO.output(m.D, False)
+            else:
+                GPIO.output(m.D, False)
+                GPIO.output(m.A, False)
+
+        t = 1e-3 - (len(self.arr)-1)*(end-start)/(len(self.arr))
+        if t < 0:
+            return 0
+        else:
+            return t
+
+    
     #parallel motor driving
     def Step1(self):
         for m in self.arr:
