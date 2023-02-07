@@ -222,7 +222,7 @@ class motorarray:
 class motorcontroller:
     def __init__(self,marray):
         self.marray=marray
-        self.heights = []
+        self.heights = [0]*len(self.marray.arr)
 
     def changeHeights(self,deltaheights):
         if len(deltaheights) != len(self.marray.arr):
