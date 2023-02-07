@@ -261,10 +261,10 @@ class motorcontroller:
 
     def setHeights(self,newheights):
         deltaheights = []
-        l = len(self.heigths)
+        l = len(self.heights)
         for i in range(l):
             deltaheights[i] = newheights[i]-self.heights[i]
-        self.updateHeights(deltaheights)
+        self.changeHeights(deltaheights)
     
     def zeroHeights(self):
         self.setHeights(self,[0]*len(self.heights))
