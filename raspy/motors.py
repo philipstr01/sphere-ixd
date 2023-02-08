@@ -312,7 +312,7 @@ class motorcontroller:
         self.changeHeights([-x]*len(self.heights))
 
     def zeroHeights(self):
-        self.setHeights(self,[0]*len(self.heights))
+        self.setHeights([0]*len(self.heights))
     
     def saveHeights(self):
         file = open("/home/pi/Documents/data/motorheights.txt","wb")
