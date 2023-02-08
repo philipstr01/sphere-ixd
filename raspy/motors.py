@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 import copy
 from time import sleep
 import time
+import pickle
 
 class motor:
     def __init__(self,A,B,C,D):
@@ -262,7 +263,7 @@ class motorcontroller:
         if len(deltaheights) != len(self.marray.arr):
             print("Passed list has not the same length as motors in list!")
             return
-
+        ### Critical Code
         for i in range(len(deltaheights)):
             self.heights[i] += deltaheights[i]
             if deltaheights[i] >= 0:
@@ -271,6 +272,8 @@ class motorcontroller:
                 self.marray.dict[self.marray.arr[i]] = False
             deltaheights[i] = abs(deltaheights[i])
 
+        self.saveHeights()
+        ###
         tmparr = copy.deepcopy(self.marray)
 
         while tmparr.arr:
@@ -306,6 +309,18 @@ class motorcontroller:
 
     def zeroHeights(self):
         self.setHeights(self,[0]*len(self.heights))
+    
+    def saveHeights(self):
+        file = open("data/motorheights.txt","w+")
+        file.truncate(0)
+        pickle.dump(self.heights,file)
+        file.write
+        file.close()
+
+    def getHeights(self):
+        file = open("data/motorheights.txt","r")
+        self.heights = pickle.load(file):
+        file.close()
     
 
 
