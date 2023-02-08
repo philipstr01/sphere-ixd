@@ -300,6 +300,10 @@ class motorcontroller:
             deltaheights[i] = newheights[i]-self.heights[i]
         self.changeHeights(deltaheights)
     
+    def jank(self,x=0.025):
+        self.changeHeights([x]*len(self.heights))
+        self.changeHeights([-x]*len(self.heights))
+
     def zeroHeights(self):
         self.setHeights(self,[0]*len(self.heights))
     
