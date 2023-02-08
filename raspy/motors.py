@@ -258,7 +258,6 @@ class motorcontroller:
     def __init__(self,marray):
         self.marray=marray
         self.heights = self.getHeights()
-        print(self.heights)
         self.zeroHeights()
 
     def changeHeights(self,deltaheights):
@@ -317,6 +316,7 @@ class motorcontroller:
     def saveHeights(self):
         file = open("/home/pi/Documents/data/motorheights.txt","wb")
         file.truncate(0)
+        print(self.heights)
         pickle.dump(self.heights,file)
         file.close()
 
