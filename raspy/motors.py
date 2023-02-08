@@ -257,8 +257,9 @@ class motorarray:
 class motorcontroller:
     def __init__(self,marray):
         self.marray=marray
-        self.heights = [0]*len(self.marray.arr)
-
+        self.heights = self.getHeights()
+        self.zeroHeights()
+        
     def changeHeights(self,deltaheights):
         if len(deltaheights) != len(self.marray.arr):
             print("Passed list has not the same length as motors in list!")
