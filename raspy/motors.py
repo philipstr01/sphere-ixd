@@ -93,7 +93,7 @@ class motorarray:
             self.dict[m] = True
         print(self.dict)
 
-        self.time = 5e-4 #self.measureDelay()
+        self.time = 1e-3 #self.measureDelay()
 
     def measureDelay(self):
         start = time.time()
