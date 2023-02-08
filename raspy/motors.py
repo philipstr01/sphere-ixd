@@ -322,10 +322,9 @@ class motorcontroller:
 
     def getHeights(self):
         file = open("/home/pi/Documents/data/motorheights.txt","rb")
-        #self.heights = pickle.load(file)
-        print(pickle.load(file))
+        x = pickle.load(file)
         file.close()
-    
+        return x
 
 
     
