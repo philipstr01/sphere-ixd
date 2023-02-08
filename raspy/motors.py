@@ -311,13 +311,13 @@ class motorcontroller:
         self.setHeights(self,[0]*len(self.heights))
     
     def saveHeights(self):
-        file = open("data/motorheights.txt","w+")
+        file = open("data/motorheights.txt","wb")
         file.truncate(0)
         pickle.dump(self.heights,file)
         file.close()
 
     def getHeights(self):
-        file = open("data/motorheights.txt","r")
+        file = open("data/motorheights.txt","rb")
         self.heights = pickle.load(file)
         file.close()
     
