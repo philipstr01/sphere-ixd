@@ -28,3 +28,5 @@ def getMeansCSV(df):
     for id in question_columns:
         ls += df[i].mean()
     return ls
+
+#Für jede Frage, den Durschnitt der Ergebnisse als Float. Wobei Antworten die älter als eine halbe Stunde sind ignoriert werden.
