@@ -258,6 +258,7 @@ class motorcontroller:
     def __init__(self,marray):
         self.marray=marray
         self.heights = self.getHeights()
+        print(self.heights)
         self.zeroHeights()
 
     def changeHeights(self,deltaheights):
