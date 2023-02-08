@@ -259,11 +259,12 @@ class motorcontroller:
         self.marray=marray
         self.heights = self.getHeights()
         self.zeroHeights()
-        
+
     def changeHeights(self,deltaheights):
         if len(deltaheights) != len(self.marray.arr):
             print("Passed list has not the same length as motors in list!")
             return
+
         ### Critical Code
         for i in range(len(deltaheights)):
             self.heights[i] += deltaheights[i]
@@ -275,6 +276,7 @@ class motorcontroller:
 
         self.saveHeights()
         ###
+        
         tmparr = copy.deepcopy(self.marray)
 
         while tmparr.arr:
