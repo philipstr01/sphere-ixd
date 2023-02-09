@@ -24,6 +24,6 @@ contr.jank()
 contr.setHeights([2,2,2,2,2])
 """
 pixels = neopixel.NeoPixel(board.D19,80)
-pixel[0] = (255,0,0)
-pixel[79] = (0,0,255)
+pixels[0] = (255,0,0)
+pixels[79] = (0,0,255)
 GPIO.cleanup()
