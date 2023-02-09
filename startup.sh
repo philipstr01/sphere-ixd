@@ -6,4 +6,4 @@ git pull origin main
 
 echo executing python main
 cd /home/pi/Documents/sphere-ixd/raspy/
-sudo python3 main.py &
+sudo -u pi python3 main.py &
