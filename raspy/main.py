@@ -30,7 +30,7 @@ while True:
     #pixels[n] = (255,0,0)
     n += 1
     print(n)
-    contr.setHeights([0.5,0.5,0.5,0.5,0.5])
+    contr.changeHeights([0.5,0.5,0.5,0.5,0.5])
     time.sleep(0.5)
     
 pixels.fill((0,0,0))
