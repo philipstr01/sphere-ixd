@@ -26,7 +26,7 @@ contr.jank()
 pixels = neopixel.NeoPixel(board.D18,80)
 pixels.fill((0,0,0))
 n = 0
-while True:
+while n<=80:
     #pixels[n] = (255,0,0)
     n += 1
     print(n)
