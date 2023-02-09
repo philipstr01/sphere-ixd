@@ -24,6 +24,7 @@ contr.jank()
 
 
 pixels = neopixel.NeoPixel(board.D18,80)
+pixels.fill((0,0,0))
 n = 0
 while True:
     i = input(str(n))
@@ -32,6 +33,5 @@ while True:
     pixels[n] = (255,0,0)
     n += 1
     contr.setHeights([0.5,0.5,0.5,0.5,0.5])
-    
 pixels.fill((0,0,0))
 GPIO.cleanup()
