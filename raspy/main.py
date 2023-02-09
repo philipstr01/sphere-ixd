@@ -23,7 +23,7 @@ contr = motors.motorcontroller(motors.motorarray([motor1,motor2,motor3,motor4,mo
 contr.jank()
 contr.setHeights([2,2,2,2,2])
 """
-pixels = neopixel.NeoPixel(board.D19,80)
+pixels = neopixel.NeoPixel(board.D35,80)
 pixels[0] = (255,0,0)
 pixels[79] = (0,0,255)
 GPIO.cleanup()
