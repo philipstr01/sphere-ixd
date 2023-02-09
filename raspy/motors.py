@@ -91,7 +91,6 @@ class motorarray:
 
         for m in self.arr:
             self.dict[m] = True
-        print(self.dict)
 
         self.time = 1e-3 #self.measureDelay()
 
@@ -258,6 +257,7 @@ class motorcontroller:
     def __init__(self,marray):
         self.marray=marray
         self.heights = self.getHeights()
+        self.jank()
         self.zeroHeights()
 
     def changeHeights(self,deltaheights):
@@ -316,7 +316,6 @@ class motorcontroller:
     def saveHeights(self):
         file = open("/home/pi/Documents/data/motorheights.txt","wb")
         file.truncate(0)
-        print(self.heights)
         pickle.dump(self.heights,file)
         file.close()
 
