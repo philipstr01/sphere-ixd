@@ -32,5 +32,5 @@ while n<17:
     print(n)
     time.sleep(0.5)
     
-pixels.fill((0,0,0))
+led.ixels.fill((0,0,0))
 GPIO.cleanup()
