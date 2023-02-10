@@ -17,7 +17,7 @@ class ledcontroller:
             self.pixels[9+14+1+row] = color
             self.pixels[9+14+2*17-row] = color
         elif row > 0:
-
+            pass
         else:
             return
         # 9 14 17
