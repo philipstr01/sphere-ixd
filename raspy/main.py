@@ -34,7 +34,7 @@ while n<17:
     time.sleep(0.5)
 """
 while True:
-    if input("Continue? ") == "no"
+    if input("Continue? ") == "no":
         break
     led.pixels[int(input("Turn on on LED Number: "))] = (255,255,255)
 led.pixels.fill((0,0,0))
