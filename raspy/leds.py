@@ -14,7 +14,7 @@ class ledcontroller:
         if row > 17:
             return
         elif row > 14:
-            self.pixels[7+14+row] = color
+            self.pixels[7-1+14+row] = color
             self.pixels[7+14+(2*17)-row] = color
             print("--")
             print(str(9+14+1+row))
