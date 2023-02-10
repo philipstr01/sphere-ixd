@@ -27,7 +27,7 @@ led = leds.ledcontroller()
 led.pixels.fill((0,0,0))
 
 n = 0
-while n<17:
+while n<18:
     led.setPixelRow((255,0,n*10),n)
     n += 1
     print(n)
