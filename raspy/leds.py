@@ -33,7 +33,7 @@ class ledcontroller:
             self.pixels[7+14+row] = color
             self.pixels[7-1+14+(2*17)-row] = color
             self.pixels[7+14+(2*17)+row] = color
-            self.pixels[row]
+            self.pixels[row] = color
             pass
         else:
             return
