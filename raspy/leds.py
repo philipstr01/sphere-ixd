@@ -3,7 +3,7 @@ import neopixel
 import board
 
 class ledcontroller:
-    def __init__(self,boardpin=board.D18,n_leds=80)
+    def __init__(self,boardpin=board.D18,n_leds=80):
         self.pixels = neopixel.NeoPixel(boardpin,n_leds)
         self.colors = [(0,0,0)]*5
 
