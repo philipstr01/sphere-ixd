@@ -7,12 +7,15 @@ class ledcontroller:
         self.pixels = neopixel.NeoPixel(boardpin,n_leds)
         self.colors = [(0,0,0)]*5
 
+    #LED Row Distribution
+    # 7 14 17 17 14 9        
+       
     def setPixelRow(self,color,row):
         if row > 17:
             return
         elif row > 14:
-            self.pixels[9+14+row] = color
-            #self.pixels[9+14+(2*17)-row] = color
+            self.pixels[7+14+row] = color
+            self.pixels[7+14+(2*17)-row] = color
             print("--")
             print(str(9+14+1+row))
             print(str(9+14+(2*17)-row))
@@ -25,7 +28,8 @@ class ledcontroller:
             pass
         else:
             return
-        # 9 14 17
+        
+
 
 
 
