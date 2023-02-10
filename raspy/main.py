@@ -23,15 +23,14 @@ GPIO.setwarnings(False)
 #contr.jank()
 
 
-pixels = neopixel.NeoPixel(board.D18,80)
-pixels.fill((0,0,0))
+led = leds.ledcontroller()
+led.pixels.fill((0,0,0))
 n = 0
-while n<80:
-    pixels[n] = (255,0,0)
+while n<17:
+    led.setPixelRow((255,0,n*10),n)
     n += 1
     print(n)
-    #contr.changeHeights([0.1]*5)
-    time.sleep(0.1)
+    time.sleep(0.5)
     
 pixels.fill((0,0,0))
 GPIO.cleanup()
