@@ -11,19 +11,19 @@ class ledcontroller:
     # 7 14 17 17 14 9        
        
     def setPixelRow(self,color,row):
-        if row > 17:
+        if row > 16:
             return
         elif row > 14:
-            self.pixels[7-1+14+row] = color
-            self.pixels[7+14+(2*17)-row] = color
+            self.pixels[7+14+row] = color
+            self.pixels[7-1+14+(2*17)-row] = color
         elif row > 9:
-            self.pixels[7-1+14+row] = color
-            self.pixels[7+14+(2*17)-row] = color
-            self.pixels[7-1+row] = color
-            self.pixels[7+2*14+(2*17)-row] = color
+            #self.pixels[7-1+14+row] = color
+            #self.pixels[7+14+(2*17)-row] = color
+            #self.pixels[7-1+row] = color
+            #self.pixels[7+2*14+(2*17)-row] = color
         elif row > 0:
-            self.pixels[7-1+14+row] = color
-            self.pixels[7+14+(2*17)-row] = color
+            #self.pixels[7-1+14+row] = color
+            #self.pixels[7+14+(2*17)-row] = color
         else:
             return
         
