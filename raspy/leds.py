@@ -53,16 +53,16 @@ class ledcontroller:
         if t > 1:
             c = self.colors[4]
         if t > 3/4:
-            c = t_add(t_mul(4*(t-3/4),self.colors[4]),t_mul((1-4*(t-3/4)),self.colors[3]))
+            c = t_add(t_mul(4*(t-3/4)**2,self.colors[4]),t_mul((4*(t-3/4-1)**2),self.colors[3]))
         elif t > 2/4:
-            c = t_add(t_mul(4*(t-2/4),self.colors[3]),t_mul((1-4*(t-2/4)),self.colors[2]))
+            c = t_add(t_mul(4*(t-2/4)**2,self.colors[3]),t_mul((4*(t-2/4-1)**2),self.colors[2]))
         elif t > 1/5:
-            c = t_add(t_mul(4*(t-1/4),self.colors[2]),t_mul((1-4*(t-1/4)),self.colors[1]))
+            c = t_add(t_mul(4*(t-1/4)**2,self.colors[2]),t_mul((4*(t-1/4-1))**2,self.colors[1]))
         elif t > 0/5:
-            c = t_add(t_mul(4*t,self.colors[1]),t_mul((1-4*t),self.colors[0]))
+            c = t_add(t_mul(4*t**2,self.colors[1]),t_mul((4*(t-1)**2),self.colors[0]))
         else:
             c = self.colors[0]
-        print(c)
+        
         return c
 
     def colorRows(self,t):
