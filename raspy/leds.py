@@ -84,7 +84,7 @@ class ledcontroller:
     def colorCycle(self,a,b):
         x = a
         while x <= b:
-            self.colorRows(5)
+            self.colorRows(x)
             x+=1/8
             time.sleep(1)
 
