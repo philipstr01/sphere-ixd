@@ -7,6 +7,7 @@ import board
 import leds
 
 #base_functions.download_write_responses()
+
 #df = base_functions.getsurveyDataframe()
 #mysurvey = base_functions.getSurveyObject()
 
@@ -25,19 +26,6 @@ GPIO.setwarnings(False)
 
 led = leds.ledcontroller()
 led.pixels.fill((0,0,0))
-
-n = 0
-while n<18:
-    led.setPixelRow((255,0,n*10),n)
-    print(n)
-    n += 1
-    time.sleep(0.5)
-
-"""
-while True:
-    if input("Continue? ") == "no":
-        break
-    led.pixels[int(input("Turn on on LED Number: "))] = (255,255,255)
-"""
+led.colorCycle(0,1)
 led.pixels.fill((0,0,0))
 GPIO.cleanup()
