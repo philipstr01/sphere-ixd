@@ -71,7 +71,6 @@ class ledcontroller:
                 c[i] = 0
 
         c = tuple(c)
-        print(c)
         return c
 
     def colorRows(self,t):
