@@ -26,6 +26,6 @@ GPIO.setwarnings(False)
 
 led = leds.ledcontroller()
 led.pixels.fill((0,0,0))
-#led.colorCycle(0,1)
+led.colorCycle(0,1)
 led.pixels.fill((0,0,0))
 GPIO.cleanup()
