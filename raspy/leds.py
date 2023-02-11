@@ -56,9 +56,9 @@ class ledcontroller:
             c = t_add(t_mul(4*(t-3/4),self.colors[4]),t_mul((1-4*(t-3/4)),self.colors[3]))
         elif t > 2/4:
             c = t_add(t_mul(4*(t-2/4),self.colors[3]),t_mul((1-4*(t-2/4)),self.colors[2]))
-        elif t > 1/5:
+        elif t > 1/4:
             c = t_add(t_mul(4*(t-1/4),self.colors[2]),t_mul((1-4*(t-1/4)),self.colors[1]))
-        elif t > 0/5:
+        elif t > 0/4:
             c = t_add(t_mul(4*t,self.colors[1]),t_mul((1-4*t),self.colors[0]))
         else:
             c = self.colors[0]
