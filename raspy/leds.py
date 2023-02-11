@@ -77,6 +77,7 @@ class ledcontroller:
         n = 0
         b = 0
         while n<17:
+            print(self.colorGradient(n))
             self.setPixelRow(self.colorGradient(t+b*n),n)
             n += 1
 
