@@ -52,7 +52,7 @@ class ledcontroller:
     def colorGradient(self,t):
         if t > 1:
             c = self.colors[4]
-        if t > 3/4:
+        elif t > 3/4:
             c = t_add(t_mul(4*(t-3/4),self.colors[4]),t_mul((1-4*(t-3/4)),self.colors[3]))
         elif t > 2/4:
             c = t_add(t_mul(4*(t-2/4),self.colors[3]),t_mul((1-4*(t-2/4)),self.colors[2]))
