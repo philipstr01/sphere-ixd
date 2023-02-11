@@ -80,11 +80,18 @@ class ledcontroller:
             self.setPixelRow(self.colorGradient(t-b*n),n)
             n += 1
 
-    def colorCycle(self,a,b):
+    def colorCycle(self,a,b): 
         x = a
-        while x <= b:
+        if a < b:
+            while x <= b:
+                self.colorRows(x)
+                x+=5e-2
+        elif a > b:
+            while x >= b:
+                self.colorRows(x)
+                x-=5e-2
+        else:
             self.colorRows(x)
-            x+=5e-2
 
         
         
