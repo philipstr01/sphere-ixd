@@ -62,7 +62,7 @@ class ledcontroller:
             c = t_add(t_mul(4*t**2,self.colors[1]),t_mul((4*(t-1)**2),self.colors[0]))
         else:
             c = self.colors[0]
-        
+        print(c)
         return c
 
     def colorRows(self,t):
