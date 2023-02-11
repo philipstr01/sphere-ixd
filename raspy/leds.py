@@ -62,7 +62,7 @@ class ledcontroller:
             c = t_add(t_mul(4*t,self.colors[1]),t_mul((1-4*t),self.colors[0]))
         else:
             c = self.colors[0]
-            z = tuple()
+        z = tuple()
         for x in c:
             if x > 255:
                 z += 255
