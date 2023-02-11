@@ -75,7 +75,7 @@ class ledcontroller:
 
     def colorRows(self,t):
         n = 0
-        b = 1/(32*1.75)
+        b = 1/(32*2.05)
         while n<17:
             self.setPixelRow(self.colorGradient(t-b*n),n)
             n += 1
