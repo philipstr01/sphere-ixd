@@ -85,8 +85,8 @@ class ledcontroller:
         x = a
         while x <= b:
             self.colorRows(5)
-            x+=1/4
-            time.sleep(2)
+            x+=1/8
+            time.sleep(1)
 
         
         
