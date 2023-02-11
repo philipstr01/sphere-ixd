@@ -65,11 +65,11 @@ class ledcontroller:
         z = tuple()
         for x in c:
             if x > 255:
-                z += 255
+                z += tuple(255)
             elif x < 0:
-                z += 0
+                z += tuple(0)
             else:
-                z += x
+                z += tuple(x)
                 
         print(c)
         return c
