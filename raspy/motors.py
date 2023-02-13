@@ -259,7 +259,7 @@ class motorcontroller:
         self.heights = self.getHeights()
         self.jank()
         self.zeroHeights()
-        self.max = 20
+        self.maxH = 40
 
     def changeHeights(self,deltaheights):
         if len(deltaheights) != len(self.marray.arr):
@@ -269,8 +269,8 @@ class motorcontroller:
         ### Critical Code
         for i in range(len(deltaheights)):
             x = self.heights[i] + deltaheights[i]
-            if x > self.max:
-                deltaheights[i] = self.max - self.heights[i]
+            if x > self.maxH:
+                deltaheights[i] = self.maxH - self.heights[i]
             elif x < 0:
                 deltaheights[i] = -self.heights[i]    
             else:
