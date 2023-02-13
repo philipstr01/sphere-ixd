@@ -65,6 +65,8 @@ def selectTime(df_resp):
 
 def calcMeans(df_resp):
     #df_resp = selectTime(df_resp)
+    df_resp.dropna(how= 'all')
+
     # first question [0,4]
     sum = 0
     count = (df_resp['q1[SQ001]']=='Y').sum()
