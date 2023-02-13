@@ -22,19 +22,6 @@ motor4 = motors.motor(9,11,8,7)
 motor5 = motors.motor(5,6,12,13)
 marray = motors.motorarray([motor1,motor2,motor3,motor4,motor5])   
 contr = motors.motorcontroller(marray)
-contr.jank()
-contr.setHeights([5]*5)
-
-""""
-led = leds.ledcontroller()
-led.pixels.fill((0,0,0))
-time.sleep(2)
-led.colorRows(0)
-led.colorCycle(0,1)
-time.sleep(2)
-led.pixels.fill((0,0,0))
-GPIO.cleanup()
-"""
 
 #main function
 def main():
@@ -89,4 +76,22 @@ def adjustHeights():
                 marray.arr[x].backward(abs(y))
 
     GPIO.cleanup()
+
+
+contr.jank()
+adjustHeights()
+
+
+""""
+led = leds.ledcontroller()
+led.pixels.fill((0,0,0))
+time.sleep(2)
+led.colorRows(0)
+led.colorCycle(0,1)
+time.sleep(2)
+led.pixels.fill((0,0,0))
+GPIO.cleanup()
+"""
+
+
             
