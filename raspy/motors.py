@@ -269,9 +269,9 @@ class motorcontroller:
     def __init__(self, marray):
         self.marray = marray
         self.heights = self.getHeights()
+        self.maxH = 40
         self.jank()
         self.zeroHeights()
-        self.maxH = 40
 
     def changeHeights(self, deltaheights):
         if len(deltaheights) != len(self.marray.arr):
