@@ -1,4 +1,4 @@
-import os 
+import os
 import neopixel
 import board
 import time
@@ -16,8 +16,8 @@ class ledcontroller:
         self.colors = self.colors = [(174,126,235),(152,227,245),(120,222,104),(245,210,59),(224,114,88)]
 
     #LED Row Distribution
-    # 7 14 17 17 14 9        
-       
+    # 7 14 17 17 14 9
+
     def setPixelRow(self,color,row):
         if row > 16:
             return
@@ -36,7 +36,7 @@ class ledcontroller:
             self.pixels[7-1+14+(2*17)-row] = color
             self.pixels[7+14+(2*17)+row] = color
             self.pixels[78-1-row] = color
-            
+
             pass
         elif row >= 0:
             self.pixels[row] = color
@@ -48,7 +48,7 @@ class ledcontroller:
             pass
         else:
             return
-        
+
     def colorGradient(self,t):
         if t > 1:
             c = self.colors[4]
@@ -80,22 +80,17 @@ class ledcontroller:
             self.setPixelRow(self.colorGradient(t-b*n),n)
             n += 1
 
-    def colorCycle(self,a,b): 
+    def colorCycle(self,a,b):
         x = a
         if a < b:
             while x <= b:
                 self.colorRows(x)
                 x+=5e-2
+                time.sleep(1e-1)
         elif a > b:
             while x >= b:
                 self.colorRows(x)
                 x-=5e-2
+                time.sleep(1e-1)
         else:
             self.colorRows(x)
-
-        
-        
-
-
-
-
