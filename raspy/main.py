@@ -56,18 +56,20 @@ def main():
         contr.setHeights([maxheight*answers[0]+minheight])
 
         #Change Harmony
+        """""
         h = [0]*5
         for i in range(5):
             h[i] = harmonHeights[i]+answers[1]*chaosHeights[i]
         contr.changeHeights(h)
+        """
 
 def adjustHeights():
     marray = motors.motorarray([motor1,motor2,motor3,motor4,motor5])   
     print("enter -1 to exit")
     while True:   
-        x = int(input("enter motor number: "))
-        y = int(input("enter rotation amount: "))
-        if x == "-1":
+        x = float(input("enter motor number: "))
+        y = float(input("enter rotation amount: "))
+        if x == -1:
             break
         else: 
             if y > 0:
@@ -79,7 +81,10 @@ def adjustHeights():
 
 
 contr.jank()
-adjustHeights()
+contr.changeHeights([10]*5)
+contr.changeHeights([-2,-1,3,2.5,-5])
+contr.zeroHeights()
+#adjustHeights()
 
 
 """"
