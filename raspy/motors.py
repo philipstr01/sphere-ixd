@@ -259,6 +259,7 @@ class motorcontroller:
         self.heights = self.getHeights()
         self.jank()
         self.zeroHeights()
+        self.max = 20
 
     def changeHeights(self,deltaheights):
         if len(deltaheights) != len(self.marray.arr):
@@ -267,7 +268,15 @@ class motorcontroller:
 
         ### Critical Code
         for i in range(len(deltaheights)):
+            x = self.heights[i] + deltaheights[i]
+            if x > self.max:
+                deltaheights[i] = self.max - self.heights[i]
+            elif x < 0:
+                deltaheights[i] = -self.heights[i]    
+            else:
+                pass
             self.heights[i] += deltaheights[i]
+
             if deltaheights[i] >= 0:
                 self.marray.dict[self.marray.arr[i]] = True
             else:
@@ -276,7 +285,7 @@ class motorcontroller:
 
         self.saveHeights()
         ###
-        
+
         tmparr = copy.deepcopy(self.marray)
 
         while tmparr.arr:
@@ -324,6 +333,3 @@ class motorcontroller:
         x = pickle.load(file)
         file.close()
         return x
-
-
-    
