@@ -66,10 +66,10 @@ def main():
     GPIO.cleanup()
 
 contr.adjustHeights()
-contr.jank()
-contr.changeHeights([10]*5)
-contr.changeHeights([-2,-1,3,2.5,-5])
-contr.zeroHeights()
+#contr.jank()
+#contr.changeHeights([10]*5)
+#contr.changeHeights([-2,-1,3,2.5,-5])
+#contr.zeroHeights()
 
 """"
 led = leds.ledcontroller()
