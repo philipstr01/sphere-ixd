@@ -39,9 +39,6 @@ from datetime import datetime, timedelta
 spm.download_write_responses() 
 responses_file = spm.getsurveyDataframe() 
 responses_file.dropna(how= 'all')
-print((responses_file))
-print(responses_file['q3[SQ001]'])
-print(len(responses_file['q3[SQ001]']))
 
 
 def selectTime(df_resp):
@@ -58,15 +55,13 @@ def selectTime(df_resp):
         datetimestr = str(df_resp['submitdate'][i])
         datetime_object = datetime.strptime(datetimestr, '%Y-%m-%d %H:%M:%S')
         ct = datetime.now()-datetime_object
-        print(ct)
-        print(timediff)
+       
         if datetime.now()-datetime_object >= timediff:
             df_resp=df_resp.drop(i)
-            print('dd')
+            
         
     return df_resp
 
-print(selectTime(responses_file))
 
 def calcMeans(df_resp):
     #df_resp = selectTime(df_resp)
@@ -82,7 +77,7 @@ def calcMeans(df_resp):
     sum += count*0.75
     count = (df_resp['q1[SQ005]']=='Y').sum()
     sum += count*1.
-    print(sum)
+    
     mean1 = sum / len(df_resp['q1[SQ005]'])
     
     # second question 
@@ -97,33 +92,30 @@ def calcMeans(df_resp):
     sum += count*0.75
     count = (df_resp['q2[SQ005]']=='Y').sum()
     sum += count*1.
-    print(sum)
+    
     mean2 = sum / len(df_resp['q1[SQ005]'])
 
     # third question 
     sum = 0
     count = (df_resp['q3[SQ001]']=='Y').sum()
-    print(count)
+    
     sum += count*0.
     count = (df_resp['q3[SQ002]']=='Y').sum()
-    print(count)
+    
     sum += count*0.25
     count = (df_resp['q3[SQ003]']=='Y').sum()
-    print(count)
+    
     sum += count*0.5
     count = (df_resp['q3[SQ004]']=='Y').sum()
-    print(count)
+    
     sum += count*0.75
     count = (df_resp['q3[SQ005]']=='Y').sum()
-    print(count)
+    
     sum += count*1.
-    print(sum)
+    
     mean3 = sum / len(df_resp['q1[SQ005]'])
 
     return(mean1, mean2, mean3)
 
-print(calcMeans(responses_file))
 
-count=responses_file['q1[SQ002]'].value_counts()['Y']
-count1 = (responses_file['q1[SQ003]']=='Y').sum()
-print(count, count1)
+
