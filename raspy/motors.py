@@ -345,3 +345,16 @@ class motorcontroller:
         x = pickle.load(file)
         file.close()
         return x
+        
+    def adjustHeights(self):
+        print("enter -1 to exit")
+        while True:   
+            x = float(input("enter motor number: "))
+            y = float(input("enter rotation amount: "))
+            if x == -1:
+                break
+            else: 
+                if y > 0:
+                    self.marray.arr[x].forward(y)
+                else:
+                    self.marray.arr[x].backward(abs(y))
