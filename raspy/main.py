@@ -63,29 +63,13 @@ def main():
         contr.changeHeights(h)
         """
 
-def adjustHeights():
-    marray = motors.motorarray([motor1,motor2,motor3,motor4,motor5])   
-    print("enter -1 to exit")
-    while True:   
-        x = float(input("enter motor number: "))
-        y = float(input("enter rotation amount: "))
-        if x == -1:
-            break
-        else: 
-            if y > 0:
-                marray.arr[x].forward(y)
-            else:
-                marray.arr[x].backward(abs(y))
-
     GPIO.cleanup()
 
-
+contr.adjustHeights()
 contr.jank()
 contr.changeHeights([10]*5)
 contr.changeHeights([-2,-1,3,2.5,-5])
 contr.zeroHeights()
-#adjustHeights()
-
 
 """"
 led = leds.ledcontroller()
