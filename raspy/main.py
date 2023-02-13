@@ -65,12 +65,21 @@ def main():
 
     GPIO.cleanup()
 
+led = leds.ledcontroller()
+led.pixels.fill((0,0,0))
 contr.adjustHeights()
-#contr.jank()
-#contr.changeHeights([10]*5)
-#contr.changeHeights([-2,-1,3,2.5,-5])
-#contr.zeroHeights()
-
+contr.jank()
+led = leds.ledcontroller()
+led.colorCycle(0,1/2)
+contr.setHeights([11]*5)
+contr.changeHeights([-3,-4,8,5.5,-6])
+led.colorCycle(0,1/2)
+contr.setHeights([7]*5)
+contr.changeHeights([2,3,-7,-4.5,5])
+time.sleep(15)
+contr.zeroHeights()
+led.pixels.fill((0,0,0))
+GPIO.cleanup()
 """"
 led = leds.ledcontroller()
 led.pixels.fill((0,0,0))
