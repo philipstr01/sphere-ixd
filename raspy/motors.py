@@ -269,7 +269,7 @@ class motorcontroller:
     def __init__(self, marray):
         self.marray = marray
         self.heights = self.getHeights()
-        self.maxH = 40
+        self.maxH = 22
         self.jank()
         self.zeroHeights()
 
