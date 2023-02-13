@@ -30,3 +30,100 @@ def getMeansCSV(df):
     return ls
 
 #Für jede Frage, den Durschnitt der Ergebnisse als Float. Wobei Antworten die älter als eine halbe Stunde sind ignoriert werden.
+import pandas as pd
+import spheremain as spm
+import datetime
+from datetime import datetime, timedelta
+
+
+spm.download_write_responses() 
+responses_file = spm.getsurveyDataframe() 
+responses_file.dropna(how= 'all')
+print((responses_file))
+print(responses_file['q3[SQ001]'])
+print(len(responses_file['q3[SQ001]']))
+
+
+def selectTime(df_resp):
+    # for exhibition purposes only display the last 30min of responses
+    timediff = timedelta(minutes=30)
+    
+    #drop responses without submitdate
+    
+    df_resp= df_resp.dropna(subset=['submitdate'])
+    df_resp = df_resp.reset_index(drop=True)
+
+    for i in range(0,len(df_resp['submitdate'])):
+
+        datetimestr = str(df_resp['submitdate'][i])
+        datetime_object = datetime.strptime(datetimestr, '%Y-%m-%d %H:%M:%S')
+        ct = datetime.now()-datetime_object
+        print(ct)
+        print(timediff)
+        if datetime.now()-datetime_object >= timediff:
+            df_resp=df_resp.drop(i)
+            print('dd')
+        
+    return df_resp
+
+print(selectTime(responses_file))
+
+def calcMeans(df_resp):
+    #df_resp = selectTime(df_resp)
+    # first question [0,4]
+    sum = 0
+    count = (df_resp['q1[SQ001]']=='Y').sum()
+    sum += count*0.
+    count = (df_resp['q1[SQ002]']=='Y').sum()
+    sum += count*0.25
+    count = (df_resp['q1[SQ003]']=='Y').sum()
+    sum += count*0.5
+    count = (df_resp['q1[SQ004]']=='Y').sum()
+    sum += count*0.75
+    count = (df_resp['q1[SQ005]']=='Y').sum()
+    sum += count*1.
+    print(sum)
+    mean1 = sum / len(df_resp['q1[SQ005]'])
+    
+    # second question 
+    sum = 0
+    count = (df_resp['q2[SQ001]']=='Y').sum()
+    sum += count*0.
+    count = (df_resp['q2[SQ002]']=='Y').sum()
+    sum += count*0.25
+    count = (df_resp['q2[SQ003]']=='Y').sum()
+    sum += count*0.5
+    count = (df_resp['q2[SQ004]']=='Y').sum()
+    sum += count*0.75
+    count = (df_resp['q2[SQ005]']=='Y').sum()
+    sum += count*1.
+    print(sum)
+    mean2 = sum / len(df_resp['q1[SQ005]'])
+
+    # third question 
+    sum = 0
+    count = (df_resp['q3[SQ001]']=='Y').sum()
+    print(count)
+    sum += count*0.
+    count = (df_resp['q3[SQ002]']=='Y').sum()
+    print(count)
+    sum += count*0.25
+    count = (df_resp['q3[SQ003]']=='Y').sum()
+    print(count)
+    sum += count*0.5
+    count = (df_resp['q3[SQ004]']=='Y').sum()
+    print(count)
+    sum += count*0.75
+    count = (df_resp['q3[SQ005]']=='Y').sum()
+    print(count)
+    sum += count*1.
+    print(sum)
+    mean3 = sum / len(df_resp['q1[SQ005]'])
+
+    return(mean1, mean2, mean3)
+
+print(calcMeans(responses_file))
+
+count=responses_file['q1[SQ002]'].value_counts()['Y']
+count1 = (responses_file['q1[SQ003]']=='Y').sum()
+print(count, count1)
