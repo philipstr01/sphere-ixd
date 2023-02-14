@@ -2,66 +2,77 @@ import RPi.GPIO as GPIO
 import copy
 from time import sleep
 import time
+import pickle
+
 
 class motor:
-    def __init__(self,A,B,C,D):
+    def __init__(self, A, B, C, D):
         # PIN-Assignment
-        self.A=A
-        self.B=B
-        self.C=C
-        self.D=D
+        self.A = A
+        self.B = B
+        self.C = C
+        self.D = D
         self.time = 1e-3
         # defining the PINs
-        GPIO.setup(self.A,GPIO.OUT)
-        GPIO.setup(self.B,GPIO.OUT)
-        GPIO.setup(self.C,GPIO.OUT)
-        GPIO.setup(self.D,GPIO.OUT)
+        GPIO.setup(self.A, GPIO.OUT)
+        GPIO.setup(self.B, GPIO.OUT)
+        GPIO.setup(self.C, GPIO.OUT)
+        GPIO.setup(self.D, GPIO.OUT)
         GPIO.output(self.A, False)
         GPIO.output(self.B, False)
         GPIO.output(self.C, False)
         GPIO.output(self.D, False)
     # driving the motor
+
     def Step1(self):
         GPIO.output(self.D, True)
-        sleep (self.time)
+        sleep(self.time)
         GPIO.output(self.D, False)
+
     def Step2(self):
         GPIO.output(self.D, True)
         GPIO.output(self.C, True)
-        sleep (self.time)
+        sleep(self.time)
         GPIO.output(self.D, False)
         GPIO.output(self.C, False)
+
     def Step3(self):
         GPIO.output(self.C, True)
-        sleep (self.time)
+        sleep(self.time)
         GPIO.output(self.C, False)
+
     def Step4(self):
         GPIO.output(self.B, True)
         GPIO.output(self.C, True)
-        sleep (self.time)
+        sleep(self.time)
         GPIO.output(self.B, False)
         GPIO.output(self.C, False)
+
     def Step5(self):
         GPIO.output(self.B, True)
-        sleep (self.time)
+        sleep(self.time)
         GPIO.output(self.B, False)
+
     def Step6(self):
         GPIO.output(self.A, True)
         GPIO.output(self.B, True)
-        sleep (self.time)
+        sleep(self.time)
         GPIO.output(self.A, False)
         GPIO.output(self.B, False)
+
     def Step7(self):
         GPIO.output(self.A, True)
-        sleep (self.time)
+        sleep(self.time)
         GPIO.output(self.A, False)
+
     def Step8(self):
         GPIO.output(self.D, True)
         GPIO.output(self.A, True)
-        sleep (self.time)
+        sleep(self.time)
         GPIO.output(self.D, False)
         GPIO.output(self.A, False)
-    def forward(self,x):
+
+    def forward(self, x):
         for i in range(int(512*x)):
             self.Step1()
             self.Step2()
@@ -71,7 +82,8 @@ class motor:
             self.Step6()
             self.Step7()
             self.Step8()
-    def backward(self,x):
+
+    def backward(self, x):
         for i in range(int(512*x)):
             self.Step8()
             self.Step7()
@@ -84,15 +96,14 @@ class motor:
 
 
 class motorarray:
-    def __init__(self,arr):
+    def __init__(self, arr):
         self.arr = arr
         self.dict = {}
 
         for m in self.arr:
             self.dict[m] = True
-        print(self.dict)
 
-        self.time = self.measureDelay()
+        self.time = 1e-3  # self.measureDelay()
 
     def measureDelay(self):
         start = time.time()
@@ -120,8 +131,8 @@ class motorarray:
             print(t)
             return t
 
-    
-    #parallel motor driving
+    # parallel motor driving
+
     def Step1(self):
         for m in self.arr:
             if self.dict[m]:
@@ -129,7 +140,7 @@ class motorarray:
             else:
                 GPIO.output(m.D, True)
                 GPIO.output(m.A, True)
-        sleep (self.time)
+        sleep(self.time)
         for m in self.arr:
             if self.dict[m]:
                 GPIO.output(m.D, False)
@@ -144,7 +155,7 @@ class motorarray:
                 GPIO.output(m.C, True)
             else:
                 GPIO.output(m.A, True)
-        sleep (self.time)
+        sleep(self.time)
         for m in self.arr:
             if self.dict[m]:
                 GPIO.output(m.D, False)
@@ -159,7 +170,7 @@ class motorarray:
             else:
                 GPIO.output(m.A, True)
                 GPIO.output(m.B, True)
-        sleep (self.time)
+        sleep(self.time)
         for m in self.arr:
             if self.dict[m]:
                 GPIO.output(m.C, False)
@@ -174,7 +185,7 @@ class motorarray:
                 GPIO.output(m.B, True)
             else:
                 GPIO.output(m.B, True)
-        sleep (self.time)
+        sleep(self.time)
         for m in self.arr:
             if self.dict[m]:
                 GPIO.output(m.C, False)
@@ -189,7 +200,7 @@ class motorarray:
             else:
                 GPIO.output(m.B, True)
                 GPIO.output(m.C, True)
-        sleep (self.time)
+        sleep(self.time)
         for m in self.arr:
             if self.dict[m]:
                 GPIO.output(m.B, False)
@@ -204,7 +215,7 @@ class motorarray:
                 GPIO.output(m.B, True)
             else:
                 GPIO.output(m.C, True)
-        sleep (self.time)
+        sleep(self.time)
         for m in self.arr:
             if self.dict[m]:
                 GPIO.output(m.A, False)
@@ -219,7 +230,7 @@ class motorarray:
             else:
                 GPIO.output(m.C, True)
                 GPIO.output(m.D, True)
-        sleep (self.time)
+        sleep(self.time)
         for m in self.arr:
             if self.dict[m]:
                 GPIO.output(m.A, False)
@@ -234,7 +245,7 @@ class motorarray:
                 GPIO.output(m.D, True)
             else:
                 GPIO.output(m.D, True)
-        sleep (self.time)
+        sleep(self.time)
         for m in self.arr:
             if self.dict[m]:
                 GPIO.output(m.A, False)
@@ -242,7 +253,7 @@ class motorarray:
             else:
                 GPIO.output(m.D, False)
 
-    def move(self,x):
+    def move(self, x):
         for i in range(int(x*512)):
             self.Step1()
             self.Step2()
@@ -253,23 +264,39 @@ class motorarray:
             self.Step7()
             self.Step8()
 
-class motorcontroller:
-    def __init__(self,marray):
-        self.marray=marray
-        self.heights = [0]*len(self.marray.arr)
 
-    def changeHeights(self,deltaheights):
+class motorcontroller:
+    def __init__(self, marray):
+        self.marray = marray
+        self.heights = self.getHeights()
+        self.maxH = 22
+        self.jank()
+        self.zeroHeights()
+
+    def changeHeights(self, deltaheights):
         if len(deltaheights) != len(self.marray.arr):
             print("Passed list has not the same length as motors in list!")
             return
 
+        # Critical Code
         for i in range(len(deltaheights)):
+            x = self.heights[i] + deltaheights[i]
+            if x > self.maxH:
+                deltaheights[i] = self.maxH - self.heights[i]
+            elif x < 0:
+                deltaheights[i] = -self.heights[i]
+            else:
+                pass
             self.heights[i] += deltaheights[i]
+
             if deltaheights[i] >= 0:
                 self.marray.dict[self.marray.arr[i]] = True
             else:
                 self.marray.dict[self.marray.arr[i]] = False
             deltaheights[i] = abs(deltaheights[i])
+
+        self.saveHeights()
+        ###
 
         tmparr = copy.deepcopy(self.marray)
 
@@ -293,16 +320,41 @@ class motorcontroller:
                 del tmparr.arr[i]
                 del deltaheights[i]
 
-    def setHeights(self,newheights):
+    def setHeights(self, newheights):
         l = len(self.heights)
         deltaheights = [0]*l
         for i in range(l):
             deltaheights[i] = newheights[i]-self.heights[i]
         self.changeHeights(deltaheights)
-    
+
+    def jank(self, x=0.025):
+        self.changeHeights([x]*len(self.heights))
+        self.changeHeights([-x]*len(self.heights))
+
     def zeroHeights(self):
-        self.setHeights(self,[0]*len(self.heights))
-    
+        self.setHeights([0]*len(self.heights))
 
+    def saveHeights(self):
+        file = open("/home/pi/Documents/data/motorheights.txt", "wb")
+        file.truncate(0)
+        pickle.dump(self.heights, file)
+        file.close()
 
-    
+    def getHeights(self):
+        file = open("/home/pi/Documents/data/motorheights.txt", "rb")
+        x = pickle.load(file)
+        file.close()
+        return x
+
+    def adjustHeights(self):
+        print("enter -1 to exit")
+        while True:   
+            x = int(input("enter motor number: "))
+            y = float(input("enter rotation amount: "))
+            if x == -1:
+                break
+            else: 
+                if y > 0:
+                    self.marray.arr[x].forward(y)
+                else:
+                    self.marray.arr[x].backward(abs(y))
