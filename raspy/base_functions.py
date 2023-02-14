@@ -1,6 +1,7 @@
 from pathlib import Path
 import limepy as lp
 import pandas as pd
+from datetime import datetime, timedelta
 
 def download_write_responses(sid=419977,filename="responses.csv"):
     try:
@@ -30,3 +31,82 @@ def getMeansCSV(df):
     return ls
 
 #Für jede Frage, den Durschnitt der Ergebnisse als Float. Wobei Antworten die älter als eine halbe Stunde sind ignoriert werden.
+def selectTime(df_resp):
+  
+    # for exhibition purposes only display the last 30min of responses
+    timediff = timedelta(minutes=30)
+    
+    #drop responses without submitdate
+    df_resp= df_resp.dropna(subset=['submitdate'])
+    df_resp = df_resp.reset_index(drop=True)
+
+    for i in range(0,len(df_resp['submitdate'])):
+
+        datetimestr = str(df_resp['submitdate'][i])
+        datetime_object = datetime.strptime(datetimestr, '%Y-%m-%d %H:%M:%S')
+        
+        if datetime.now()-datetime_object >= timediff:
+            df_resp=df_resp.drop(i)
+            
+        
+    return df_resp
+
+
+def calcMeans(df_resp):
+    df_resp.dropna(how= 'all')
+    df_resp = df_resp.reset_index(drop=True)
+
+    df_resp = selectTime(df_resp)
+
+    if len(df_resp)==0:
+        return(-1, -1, -1)
+
+    # first question 
+    sum = 0
+    count = (df_resp['q1[SQ001]']=='Y').sum()
+    sum += count*0.
+    count = (df_resp['q1[SQ002]']=='Y').sum()
+    sum += count*0.25
+    count = (df_resp['q1[SQ003]']=='Y').sum()
+    sum += count*0.5
+    count = (df_resp['q1[SQ004]']=='Y').sum()
+    sum += count*0.75
+    count = (df_resp['q1[SQ005]']=='Y').sum()
+    sum += count*1.
+    
+    mean1 = sum / len(df_resp['q1[SQ005]'])
+    
+    # second question 
+    sum = 0
+    count = (df_resp['q2[SQ001]']=='Y').sum()
+    sum += count*0.
+    count = (df_resp['q2[SQ002]']=='Y').sum()
+    sum += count*0.25
+    count = (df_resp['q2[SQ003]']=='Y').sum()
+    sum += count*0.5
+    count = (df_resp['q2[SQ004]']=='Y').sum()
+    sum += count*0.75
+    count = (df_resp['q2[SQ005]']=='Y').sum()
+    sum += count*1.
+    
+    mean2 = sum / len(df_resp['q1[SQ005]'])
+
+    # third question 
+    sum = 0
+    count = (df_resp['q3[SQ001]']=='Y').sum()
+    print("yesses",count)
+    sum += count*0.
+    count = (df_resp['q3[SQ002]']=='Y').sum()
+    sum += count*0.25
+    count = (df_resp['q3[SQ003]']=='Y').sum()
+    sum += count*0.5
+    count = (df_resp['q3[SQ004]']=='Y').sum()
+    sum += count*0.75
+    count = (df_resp['q3[SQ005]']=='Y').sum()
+    sum += count*1.
+    
+    mean3 = sum / len(df_resp['q1[SQ005]'])
+
+    return(mean1, mean2, mean3)
+
+
