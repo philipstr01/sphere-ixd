@@ -1,6 +1,7 @@
 from pathlib import Path
 import limepy as lp
 import pandas as pd
+from datetime import datetime, timedelta
 
 def download_write_responses(sid=419977,filename="responses.csv"):
     try:
@@ -54,19 +55,20 @@ def selectTime(df_resp):
 
         datetimestr = str(df_resp['submitdate'][i])
         datetime_object = datetime.strptime(datetimestr, '%Y-%m-%d %H:%M:%S')
-        ct = datetime.now()-datetime_object
        
         if datetime.now()-datetime_object >= timediff:
             df_resp=df_resp.drop(i)
-            
-        
+  
     return df_resp
 
 
 def calcMeans(df_resp):
     df_resp = selectTime(df_resp)
     df_resp.dropna(how= 'all')
-
+    
+    if len(df_resp)==0:
+        return(-1, -1, -1)
+    
     # first question [0,4]
     sum = 0
     count = (df_resp['q1[SQ001]']=='Y').sum()
@@ -100,21 +102,15 @@ def calcMeans(df_resp):
     # third question 
     sum = 0
     count = (df_resp['q3[SQ001]']=='Y').sum()
-    
     sum += count*0.
     count = (df_resp['q3[SQ002]']=='Y').sum()
-    
     sum += count*0.25
     count = (df_resp['q3[SQ003]']=='Y').sum()
-    
     sum += count*0.5
     count = (df_resp['q3[SQ004]']=='Y').sum()
-    
     sum += count*0.75
     count = (df_resp['q3[SQ005]']=='Y').sum()
-    
     sum += count*1.
-    
     mean3 = sum / len(df_resp['q1[SQ005]'])
 
     return(mean1, mean2, mean3)
