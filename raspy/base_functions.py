@@ -31,16 +31,6 @@ def getMeansCSV(df):
     return ls
 
 #Für jede Frage, den Durschnitt der Ergebnisse als Float. Wobei Antworten die älter als eine halbe Stunde sind ignoriert werden.
-import pandas as pd
-import spheremain as spm
-import datetime
-from datetime import datetime, timedelta
-
-
-spm.download_write_responses() 
-responses_file = spm.getsurveyDataframe() 
-responses_file.dropna(how= 'all')
-
 
 def selectTime(df_resp):
     # for exhibition purposes only display the last 30min of responses
