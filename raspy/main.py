@@ -34,7 +34,7 @@ def main():
     contr.jank()
 
     compTime = datetime.now()
-
+    prevanswers = (2,2,2)
     n = 0
     while True:
         #Check Time
@@ -49,6 +49,10 @@ def main():
         df = base_functions.getsurveyDataframe()
         answers = base_functions.calcMeans(df,compTime)
         print("Answers = "+str(answers))
+        if answers == prevanswers:
+            time.sleep(5)
+            continue
+
         if answers == (-1,-1,-1):
             print("Entering null mode!")
             contr.zeroHeights()
@@ -82,6 +86,7 @@ def main():
 
         contr.jank()
         contr.changeHeights(h)
+        time.sleep(10)
         #n += 1
     
     print("Controller Heights:")
