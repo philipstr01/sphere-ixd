@@ -23,10 +23,10 @@ led.pixels.fill((0,0,0))
 
 #main function
 def main():
-    minheight = 1
-    maxheight = 9 + minheight
+    minheight = 2
+    maxheight = 8 + minheight
 
-    chaosHeights = [0.4,0.1,1,0.5,0.2]
+    chaosHeights = [2,0.5,5,2.5,2] #[0.4,0.1,1,0.5,0.2]
     harmonHeights = [2.5,4.45,0,4.45,2.5]
 
     stress = 0
@@ -78,7 +78,7 @@ def main():
     contr.zeroHeights()
 
 
-#contr.adjustHeights()
-main()
+contr.adjustHeights()
+#main()
 
             
