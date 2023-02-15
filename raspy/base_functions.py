@@ -105,7 +105,6 @@ def calcMeans(df_resp,compTime):
     sum += count*1.
     
     mean3 = sum / len(df_resp['q1[SQ005]'])
-    print((mean1, mean2, mean3))
     return((mean1, mean2, mean3))
 
 
