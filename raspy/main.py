@@ -36,7 +36,8 @@ def main():
 
     compTime = datetime.now()
 
-    while True:
+    n = 0
+    while n<1:
         #Check Time
         if datetime.now()-compTime >= timedelta(minutes=30):
             compTime = datetime.now()
@@ -60,9 +61,11 @@ def main():
             h[i] = harmonHeights[i]+answers[2]*chaosHeights[i]
         contr.changeHeights(h)
         """
+        n += 1
+    contr.zeroHeights()
 
 
-contr.adjustHeights()
-
+#contr.adjustHeights()
+main()
 
             
