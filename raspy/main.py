@@ -39,29 +39,34 @@ def main():
     n = 0
     while n<1:
         #Check Time
+        print("Checking Time:")
         if datetime.now()-compTime >= timedelta(minutes=30):
             compTime = datetime.now()
+        print("compTime = "+str(compTime))
 
         #getAnswers 
+        print("Getting answers:")
         base_functions.download_write_responses()
         df = base_functions.getsurveyDataframe()
         answers = base_functions.calcMeans(df,compTime)
-        print("----------------")
-        print(answers)
-        
+        print("Answers = "+str(answers))
         if answers == (-1,-1,-1):
+            print("Entering null mode!")
             contr.zeroHeights()
             led.pixels.fill(0,0,0)
             continue
         
         #Change Lights
+        print("Changing Lights:")
         led.colorCycle(stress,answers[1])
         stress = answers[1]
 
         #Change Height
+        print("Changing Height:")
         contr.setHeights([maxheight*answers[0]+minheight]*5)
 
         #Change Harmony
+        print("Changing Harmony")
         """""
         h = [0]*5
         for i in range(5):
