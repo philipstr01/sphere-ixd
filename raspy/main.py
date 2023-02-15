@@ -52,7 +52,7 @@ def main():
         stress = answers[1]
 
         #Change Height
-        contr.setHeights([maxheight*answers[0]+minheight])
+        contr.setHeights([maxheight*answers[0]+minheight]*5)
 
         #Change Harmony
         """""
