@@ -50,8 +50,12 @@ def main():
         answers = base_functions.calcMeans(df,compTime)
         print("Answers = "+str(answers))
         if answers == prevanswers:
+            print("No new Answers, sleeping for 5s")
             time.sleep(5)
             continue
+        else:
+            prevanswers = answers
+
 
         if answers == (-1,-1,-1):
             print("Entering null mode!")
@@ -92,6 +96,7 @@ def main():
     print("Controller Heights:")
     print(contr.heights)
     print("Finished main!")
+    print("...sleeping 10s")
     time.sleep(10)
     contr.zeroHeights()
     led.pixels.fill((0,0,0))
