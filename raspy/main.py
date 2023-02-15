@@ -49,11 +49,13 @@ def main():
         base_functions.download_write_responses()
         df = base_functions.getsurveyDataframe()
         answers = base_functions.calcMeans(df,compTime)
+        answers = (0,0.2,0)
         print("Answers = "+str(answers))
         if answers == (-1,-1,-1):
             print("Entering null mode!")
             contr.zeroHeights()
             led.pixels.fill(0,0,0)
+            stess = 0
             continue
         
         #Change Lights
@@ -67,18 +69,16 @@ def main():
 
         #Change Harmony
         print("Changing Harmony: "+str(answers[2]))
-        """""
         h = [0]*5
         for i in range(5):
             h[i] = harmonHeights[i]+answers[2]*chaosHeights[i]
         contr.changeHeights(h)
-        """
         n += 1
     print("Finished main!")
     contr.zeroHeights()
 
 
 contr.adjustHeights()
-#main()
+main()
 
             
