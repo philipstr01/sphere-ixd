@@ -54,6 +54,8 @@ def main():
             contr.zeroHeights()
             led.pixels.fill((0,0,0))
             stess = 0
+            print("Null mode sleep... 5s")
+            time.sleep(5)
             continue
         
         #Change Lights
