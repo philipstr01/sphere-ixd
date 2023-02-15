@@ -48,7 +48,7 @@ def main():
         base_functions.download_write_responses()
         df = base_functions.getsurveyDataframe()
         answers = base_functions.calcMeans(df,compTime)
-        answers = (0,0.2,0)
+        answers = (0.2,1,0)
         print("Answers = "+str(answers))
         if answers == (-1,-1,-1):
             print("Entering null mode!")
@@ -74,7 +74,9 @@ def main():
         contr.changeHeights(h)
         n += 1
     print("Finished main!")
+    time.sleep(10)
     contr.zeroHeights()
+    led.pixels.fill(0,0,0)
 
 
 contr.adjustHeights()
