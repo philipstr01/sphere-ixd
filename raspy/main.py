@@ -31,7 +31,6 @@ def main():
 
     stress = 0
 
-    contr = motors.motorcontroller(motors.motorarray([motor1,motor2,motor3,motor4,motor5]))
     contr.jank()
 
     compTime = datetime.now()
