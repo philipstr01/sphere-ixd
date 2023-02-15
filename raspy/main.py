@@ -74,6 +74,7 @@ def main():
         contr.changeHeights(h)
         """
         n += 1
+    print("Finished main!")
     contr.zeroHeights()
 
 
