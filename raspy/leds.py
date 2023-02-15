@@ -14,7 +14,7 @@ class ledcontroller:
     def __init__(self,boardpin=board.D18,n_leds=80):
         self.pixels = neopixel.NeoPixel(boardpin,n_leds)
         #self.colors = self.colors = [(174,126,235),(152,227,245),(120,222,104),(245,210,59),(224,114,88)]
-        self.colors = self.colors = [(int(174/2),int(126/2),235),(int(152/2),int(227/2),245),(int(120/2),222,int(104/2)),(245,210,int(59/2)),(224,int(114/2),int(88/2))]
+        self.colors = [(245,210,int(59/2)),(int(120/2),222,int(104/2)),(int(152/2),int(227/2),245),(int(174/2),int(126/2),235),(224,int(114/2),int(88/2))]
     #LED Row Distribution
     # 7 14 17 17 14 9
 
