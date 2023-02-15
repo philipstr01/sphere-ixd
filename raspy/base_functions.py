@@ -94,7 +94,6 @@ def calcMeans(df_resp,compTime):
     # third question 
     sum = 0
     count = (df_resp['q3[SQ001]']=='Y').sum()
-    print("yesses",count)
     sum += count*0.
     count = (df_resp['q3[SQ002]']=='Y').sum()
     sum += count*0.25
@@ -106,7 +105,7 @@ def calcMeans(df_resp,compTime):
     sum += count*1.
     
     mean3 = sum / len(df_resp['q1[SQ005]'])
-
-    return(mean1, mean2, mean3)
+    print((mean1, mean2, mean3))
+    return((mean1, mean2, mean3))
 
 
