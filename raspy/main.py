@@ -76,7 +76,7 @@ def main():
     print("Finished main!")
     time.sleep(10)
     contr.zeroHeights()
-    led.pixels.fill(0,0,0)
+    led.pixels.fill((0,0,0))
 
 
 contr.adjustHeights()
