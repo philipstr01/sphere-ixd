@@ -36,7 +36,7 @@ def main():
     compTime = datetime.now()
 
     n = 0
-    while n<1:
+    while True:
         #Check Time
         print("Checking Time:")
         if datetime.now()-compTime >= timedelta(minutes=30):
@@ -63,8 +63,8 @@ def main():
         stress = answers[1]
 
         #Change Height
-        contr.jank(0.5)
         print("Changing Height:"+str(answers[0]))
+        contr.jank()
         contr.setHeights([maxheight*answers[0]+minheight]*5)
 
         print("Controller Heights:")
@@ -79,8 +79,9 @@ def main():
         print("Controller Heights:")
         print(contr.heights)
 
+        contr.jank()
         contr.changeHeights(h)
-        n += 1
+        #n += 1
     
     print("Controller Heights:")
     print(contr.heights)
