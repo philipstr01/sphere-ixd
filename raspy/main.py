@@ -35,7 +35,7 @@ def main():
 
     compTime = datetime.now()
     prevanswers = (2,2,2)
-    n = 0
+
     while True:
         #Check Time
         print("Checking Time:")
@@ -90,14 +90,9 @@ def main():
 
         contr.jank()
         contr.changeHeights(h)
+        print("...sleeping 10s")
         time.sleep(10)
-        #n += 1
-    
-    print("Controller Heights:")
-    print(contr.heights)
-    print("Finished main!")
-    print("...sleeping 10s")
-    time.sleep(10)
+
     contr.zeroHeights()
     led.pixels.fill((0,0,0))
 
