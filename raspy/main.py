@@ -79,7 +79,7 @@ def main():
     led.pixels.fill(0,0,0)
 
 
-contr.adjustHeights()
+#contr.adjustHeights()
 main()
 
             
