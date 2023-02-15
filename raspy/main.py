@@ -48,7 +48,7 @@ def main():
         base_functions.download_write_responses()
         df = base_functions.getsurveyDataframe()
         answers = base_functions.calcMeans(df,compTime)
-        answers = (0.5,1,1)
+        answers = (0.5,1,0)
         print("Answers = "+str(answers))
         if answers == (-1,-1,-1):
             print("Entering null mode!")
@@ -66,13 +66,23 @@ def main():
         print("Changing Height:"+str(answers[0]))
         contr.setHeights([maxheight*answers[0]+minheight]*5)
 
+        print("Controller Heights:")
+        print(contr.heights)
+
         #Change Harmony
         print("Changing Harmony: "+str(answers[2]))
         h = [0]*5
         for i in range(5):
             h[i] = harmonHeights[i]+answers[2]*chaosHeights[i]
+
+        print("Controller Heights:")
+        print(contr.heights)
+
         contr.changeHeights(h)
         n += 1
+    
+    print("Controller Heights:")
+    print(contr.heights)
     print("Finished main!")
     time.sleep(10)
     contr.zeroHeights()
