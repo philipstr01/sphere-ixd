@@ -52,7 +52,7 @@ def main():
         if answers == (-1,-1,-1):
             print("Entering null mode!")
             contr.zeroHeights()
-            led.pixels.fill(0,0,0)
+            led.pixels.fill((0,0,0))
             stess = 0
             continue
         
