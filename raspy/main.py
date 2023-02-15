@@ -57,16 +57,16 @@ def main():
             continue
         
         #Change Lights
-        print("Changing Lights:")
+        print("Changing Lights:"+str(answers[1]))
         led.colorCycle(stress,answers[1])
         stress = answers[1]
 
         #Change Height
-        print("Changing Height:")
+        print("Changing Height:"+str(answers[0]))
         contr.setHeights([maxheight*answers[0]+minheight]*5)
 
         #Change Harmony
-        print("Changing Harmony")
+        print("Changing Harmony: "+str(answers[2]))
         """""
         h = [0]*5
         for i in range(5):
