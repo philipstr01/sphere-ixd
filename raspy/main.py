@@ -63,6 +63,7 @@ def main():
         stress = answers[1]
 
         #Change Height
+        contr.jank(0.5)
         print("Changing Height:"+str(answers[0]))
         contr.setHeights([maxheight*answers[0]+minheight]*5)
 
