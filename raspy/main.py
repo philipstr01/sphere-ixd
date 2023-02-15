@@ -46,7 +46,13 @@ def main():
         base_functions.download_write_responses()
         df = base_functions.getsurveyDataframe()
         answers = base_functions.calcMeans(df,compTime)
-
+        print(answers)
+        
+        if answers == (-1,-1,-1):
+            contr.zeroHeights()
+            led.pixels.fill(0,0,0)
+            continue
+        
         #Change Lights
         led.colorCycle(stress,answers[1])
         stress = answers[1]
