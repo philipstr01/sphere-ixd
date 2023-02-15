@@ -46,6 +46,7 @@ def main():
         base_functions.download_write_responses()
         df = base_functions.getsurveyDataframe()
         answers = base_functions.calcMeans(df,compTime)
+        print("----------------")
         print(answers)
         
         if answers == (-1,-1,-1):
