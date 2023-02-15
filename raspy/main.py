@@ -27,7 +27,7 @@ def main():
     maxheight = 8 + minheight
 
     chaosHeights = [2,0.5,5,2.5,2] #[0.4,0.1,1,0.5,0.2]
-    harmonHeights = [2.5,4.45,0,4.45,2.5]
+    harmonHeights = [2,4.45,0,4.45,2] #[2.5,4.45,0,4.45,2.5]
 
     stress = 0
 
@@ -48,7 +48,7 @@ def main():
         base_functions.download_write_responses()
         df = base_functions.getsurveyDataframe()
         answers = base_functions.calcMeans(df,compTime)
-        answers = (0.2,1,0)
+        answers = (0.5,1,1)
         print("Answers = "+str(answers))
         if answers == (-1,-1,-1):
             print("Entering null mode!")
