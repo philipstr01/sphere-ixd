@@ -27,7 +27,7 @@ def main():
     maxheight = 8 + minheight
 
     chaosHeights = [2,0.5,5,2.5,2] #[0.4,0.1,1,0.5,0.2]
-    harmonHeights = [2,4.45,0,4.45,2] #[2.5,4.45,0,4.45,2.5]
+    harmonHeights = [2.5,4.45,0,4.45,2.5] #[2.5,4.45,0,4.45,2.5]
 
     stress = 0
 
@@ -85,11 +85,12 @@ def main():
         for i in range(5):
             h[i] = harmonHeights[i]+answers[2]*chaosHeights[i]
 
+        contr.jank()
+        contr.changeHeights(h)
+
         print("Controller Heights:")
         print(contr.heights)
 
-        contr.jank()
-        contr.changeHeights(h)
         print("...sleeping 10s")
         time.sleep(10)
 
