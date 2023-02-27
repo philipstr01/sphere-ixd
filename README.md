@@ -43,11 +43,13 @@ Once everything has been setup, the sphere is ready to use. Sphere will be, by d
 
 | Rest State  | Activated |
 | ------------- | ------------- |
-| <img src="https://user-images.githubusercontent.com/85298560/221534627-588d891e-c352-465a-9959-7b2fe91bef11.jpeg" width="1000" height="1000">  | <img src="https://user-images.githubusercontent.com/85298560/221534742-ba6b5d19-16c6-4836-91e9-9121a5e6da8b.jpeg" width="1000" height="1000">  |
+| <img src="https://user-images.githubusercontent.com/85298560/221534627-588d891e-c352-465a-9959-7b2fe91bef11.jpeg" width=70% height=70%>  | <img src="https://user-images.githubusercontent.com/85298560/221534742-ba6b5d19-16c6-4836-91e9-9121a5e6da8b.jpeg" width=50% height=50%>  |
 
 After half an hour, the sphere will reset to its resting state, after which answers can be displayed again.
 
 For easy use of the artifact, we recommend placing a QR-code of your survey website near Sphere.
+
+<img src="https://user-images.githubusercontent.com/85298560/221582088-9d64920c-271c-4fa3-9590-c8ac8de20210.jpeg" width=50% height=50%>
 
 ## Acknowledgements
 ## License
