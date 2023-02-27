@@ -38,8 +38,13 @@ or disharmonious the overall ball picture appears,
 the better or worse your team dynamics look. The
 Light colours range from yellow with little stress to red with much stress.
 
+<img src="https://user-images.githubusercontent.com/85298560/221627110-73ba7104-3e9a-4e0b-a770-1b8dc1fce668.jpg" width=50% height=50%>
 
 ### The Prototype
+
+For the prototype, we decided to build a cutout from the concept. We made nine individual spheres and controlled them with five small stepper motors. Stepper motors are a natural choice because they allow for precise rotations and would not turn without being powered. The spheres were connected to the motors via a tough string that would go through the back, where the motors were located. To control the prototype, we picked the Raspberry Pi 4 B since it has more than enough pins for the motors and can connect to the internet to download survey results. For LEDs, we went for a strip of WS2812B since they are really common and have a lot of documentation. Because we wanted a lot of light, we had to really think about our power supply. We used a phone charger to power the Pi and a 5V 5A supply to power both LEDs and motors. This would ensure that sudden fluctuations in power demand would not interrupt the voltage delivered to the Pi. We also had to use cables that could bear the load of the power supply.
+
+
 ## Installation
 ### The Raspberry Pi
 We use Raspberry Pi OS (32-bit) 2022-09-22 on a Raspberry Pi 4 Model B.
