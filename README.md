@@ -11,6 +11,7 @@
 ## Description
 
 ## Installation
+### The Raspberry Pi
 We use Raspberry Pi OS (32-bit) 2022-09-22 on a Raspberry Pi 4 Model B.
 The OS can be installed via the [Raspberry Pi imager](https://www.raspberrypi.com/software/). Notice that our configuration was headless,
 meaning that we had to enable SSH and configure a WiFi connection inside the imager. 
@@ -20,16 +21,34 @@ As depicted  here:
 ![imagersettings](https://user-images.githubusercontent.com/85298560/214868522-06e33cfc-d6da-4eb2-95f9-11187529c631.png)
 
 You need to install python 3 and the following pip packages:
-- pandas
-- limepy
-- GitPython
+```
+sudo pip install pandas
+sudo pip install limepy
+sudo pip install GitPython
+sudo pip install rpi_ws281x 
+sudo pip install adafruit-circuitpython-neopixel
+sudo python3 -m pip install --force-reinstall adafruit-blinka
+```
+
 
 Once you have set up the Pi, you can place the whole repo in the Documents folder so that its path will be **/home/pi/Documents/sphere-ixd**.
-Afterwards, [edit the **rc.local** file](https://raspberrypi-guide.github.io/programming/run-script-on-boot) and add the path **/home/pi/Documents/shpere-ixd/startup.py**. 
 
-When the Raspberry Pi is powered on, it should now automatically update the program files and run the program. 
+When you want to start your programm just execute **startup.sh**.
+
+### The Limesurvey Website
 
 ## Usage
+
+Once everything has been setup, the sphere is ready to use. Sphere will be, by default, in a resting state. Once answers are submitted to your LimeSurvey site, Sphere will wake up and start displaying the summarized results.
+
+| Rest State  | Activated |
+| ------------- | ------------- |
+| <img src="https://user-images.githubusercontent.com/85298560/221534627-588d891e-c352-465a-9959-7b2fe91bef11.jpeg" width="1000" height="1000">  | <img src="https://user-images.githubusercontent.com/85298560/221534742-ba6b5d19-16c6-4836-91e9-9121a5e6da8b.jpeg" width="1000" height="1000">  |
+
+After half an hour, the sphere will reset to its resting state, after which answers can be displayed again.
+
+For easy use of the artifact, we recommend placing a QR-code of your survey website near Sphere.
+
 ## Acknowledgements
 ## License
 
