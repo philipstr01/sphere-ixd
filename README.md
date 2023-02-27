@@ -9,7 +9,37 @@
 - [Acknowledgements](https://github.com/philipstr01/sphere-ixd#acknowledgements)
 - [License](https://github.com/philipstr01/sphere-ixd#license)
 ## Description
+### The Concept
+Emotional openness is an increasingly important topic in today's workplace culture.
+Employees want to be able to be open and authentic with their emotions and
+thoughts.  To create a mutually respectful way of dealing with emotions, it is
+It is important that we have a space where we can reflect well and share our inner life in a
+safe framework.
 
+Sphere creates such a safe framework and routines. Through regular reflection
+We learn to better reflect ourselves, our thoughts, and our emotions by asking questions.
+For some, this comes naturally; for others, it's a helpful exercise. Team members
+answer three questions once a week directly on the Sphere website. The physical
+representation of the collected and analyzed answers the object Sphere subsequently makes the overall emotional impression tangible and palpable to the team.
+The team members thus gets a good impression of how the team is currently feeling and are encouraged to get in exchange about it.
+
+Sphere focuses on the following three areas to make this possible: How is the
+mood of your team? How satisfied is your team with the team dynamics? What is
+your team's stress level? Sphere offers the possibility to gently integrate the
+topic of emotional well-being at work into your daily work routine.
+
+Sphere will be hung in any room at your
+office. It can then be accessed individually by each
+team via the website.
+Via the parameters "light color" , "hanmony of the spheres" and "height of the spheres," the collected and analysed the answers of the team members are displayed.
+The lower the spheres all hang, the sooner the mood
+of your team is "really down." The more harmonious
+or disharmonious the overall ball picture appears,
+the better or worse your team dynamics look. The
+Light colours range from yellow with little stress to red with much stress.
+
+
+### The Prototype
 ## Installation
 ### The Raspberry Pi
 We use Raspberry Pi OS (32-bit) 2022-09-22 on a Raspberry Pi 4 Model B.
@@ -52,6 +82,10 @@ For easy use of the artifact, we recommend placing a QR-code of your survey webs
 <img src="https://user-images.githubusercontent.com/85298560/221582088-9d64920c-271c-4fa3-9590-c8ac8de20210.jpeg" width=50% height=50%>
 
 ## Acknowledgements
+- Hanne Wegener (Product-Design)
+- [Maya Giri](https://github.com/mygiri) (Computer Science)
+- [Philip Stricker](https://github.com/philipstr01) (Computer Science)
+
 ## License
 MIT License
 
