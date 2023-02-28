@@ -12,8 +12,7 @@
 ### The Concept
 Emotional openness is an increasingly important topic in today's workplace culture.
 Employees want to be able to be open and authentic with their emotions and
-thoughts.  To create a mutually respectful way of dealing with emotions, it is
-It is important that we have a space where we can reflect well and share our inner life in a
+thoughts. To create a mutually respectful way of dealing with emotions, it is important that we have a space where we can reflect well and share our inner life in a
 safe framework.
 
 Sphere creates such a safe framework and routines. Through regular reflection
@@ -21,7 +20,7 @@ We learn to better reflect ourselves, our thoughts, and our emotions by asking q
 For some, this comes naturally; for others, it's a helpful exercise. Team members
 answer three questions once a week directly on the Sphere website. The physical
 representation of the collected and analyzed answers the object Sphere subsequently makes the overall emotional impression tangible and palpable to the team.
-The team members thus gets a good impression of how the team is currently feeling and are encouraged to get in exchange about it.
+The team members thus get a good impression of how the team is currently feeling and are encouraged to get in exchange about it.
 
 Sphere focuses on the following three areas to make this possible: How is the
 mood of your team? How satisfied is your team with the team dynamics? What is
@@ -38,7 +37,7 @@ or disharmonious the overall ball picture appears,
 the better or worse your team dynamics look. The
 Light colours range from yellow with little stress to red with much stress.
 
-For further design concept information visit: https://www.codingixd.org/lets-get-physical/ 
+For further information about the design concept visit: https://www.codingixd.org/lets-get-physical/ 
 
 <img src="https://user-images.githubusercontent.com/85298560/221627110-73ba7104-3e9a-4e0b-a770-1b8dc1fce668.jpg" width=50% height=50%>
 
